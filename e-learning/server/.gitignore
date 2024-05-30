@@ -1,0 +1,3 @@
+git add .
+git commit -m "Message de commit expliquant les modifications"
+git push origin ma-nouvelle-branche
