@@ -41,6 +41,7 @@ import { NavbarComponent } from './Components/components/navbar/navbar.component
 import { FooterComponent } from './Components/components/footer/footer.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { HomeComponent } from './Components/pages/home/home.component';
+import { InscriptionComponent } from './Components/pages/inscription/inscription.component';
 
 
 
@@ -52,7 +53,8 @@ import { HomeComponent } from './Components/pages/home/home.component';
     DeleteComponent,
     FullLoaderComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    InscriptionComponent
   ],
   imports: [
     MatDividerModule,

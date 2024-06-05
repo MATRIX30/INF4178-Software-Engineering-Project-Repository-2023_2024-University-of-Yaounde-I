@@ -48,11 +48,19 @@
             >A propos</a
           >
         </li>
-        <li class="ms-4">
-          <button mat-raised-button class="me-2 shadow rounded-pill primary-light-button">
+        <li class="ms-3 mt-sm-3 mt-md-0 mt-lg-0 mt-xl-0">
+          <button
+          (click)="go_to_login_page()"
+            mat-raised-button
+            class="me-2 shadow rounded-pill primary-light-button"
+          >
             Connexion
           </button>
-          <button mat-raised-button class="shadow rounded-pill secondary-light-button">
+          <button
+          (click)="go_to_register_page()"
+            mat-raised-button
+            class="shadow rounded-pill secondary-light-button"
+          >
             Inscription
           </button>
         </li>

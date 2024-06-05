@@ -233,6 +233,10 @@
   background-color: var(--gray-color) !important;
 }
 
+.bg-primary-light {
+  background-color: var(--primary-light-color);
+}
+
 .action-btn {
   width: 40px !important;
   height: 40px !important;
