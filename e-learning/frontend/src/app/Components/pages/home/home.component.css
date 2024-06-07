@@ -139,3 +139,7 @@ button.btn-home-search {
   background-clip: text;
   color: transparent;
 }
+
+.text-orange {
+  color: var(--orange-color) !important;
+}

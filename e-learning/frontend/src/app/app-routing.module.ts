@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'register', component: InscriptionComponent, title: "Institute - Inscription" },
   { path: 'login', component: ConnexionComponent, title: "Institute - Connexion" },
 
+  { path: 'institute/user/home', component: InscriptionComponent, title: "Utilisateur - Tableau de bord" },
 
 ];
 

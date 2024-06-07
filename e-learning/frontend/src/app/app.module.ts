@@ -43,6 +43,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { HomeComponent } from './Components/pages/home/home.component';
 import { InscriptionComponent } from './Components/pages/inscription/inscription.component';
 import { ConnexionComponent } from './Components/pages/connexion/connexion.component';
+import { DomainCardComponent } from './Components/components/domain-card/domain-card.component';
+import { CourseCardComponent } from './Components/components/course-card/course-card.component';
+import { HomeUserComponent } from './Components/pages/home-user/home-user.component';
 
 
 
@@ -56,7 +59,10 @@ import { ConnexionComponent } from './Components/pages/connexion/connexion.compo
     NavbarComponent,
     FooterComponent,
     InscriptionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    DomainCardComponent,
+    CourseCardComponent,
+    HomeUserComponent
   ],
   imports: [
     MatDividerModule,
