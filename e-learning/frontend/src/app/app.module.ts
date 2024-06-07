@@ -42,6 +42,7 @@ import { FooterComponent } from './Components/components/footer/footer.component
 import { MatDividerModule } from '@angular/material/divider';
 import { HomeComponent } from './Components/pages/home/home.component';
 import { InscriptionComponent } from './Components/pages/inscription/inscription.component';
+import { ConnexionComponent } from './Components/pages/connexion/connexion.component';
 
 
 
@@ -54,7 +55,8 @@ import { InscriptionComponent } from './Components/pages/inscription/inscription
     FullLoaderComponent,
     NavbarComponent,
     FooterComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ConnexionComponent
   ],
   imports: [
     MatDividerModule,
