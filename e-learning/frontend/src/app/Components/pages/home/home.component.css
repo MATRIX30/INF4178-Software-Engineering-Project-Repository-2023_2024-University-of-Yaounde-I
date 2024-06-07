@@ -1,4 +1,3 @@
-
 .bb {
   height: 80px !important;
 }
@@ -125,4 +124,18 @@ button.btn-home-search {
 
 .btn-h-56 {
   height: 56px !important;
+}
+
+.mw-400 {
+  max-width: 350px !important;
+}
+
+.text-stat {
+  font-size: 60px;
+  background: linear-gradient(90deg, #136CB5, #49BBBD);
+  /* Gradient colors */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }

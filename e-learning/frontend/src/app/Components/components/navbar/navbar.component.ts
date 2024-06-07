@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -14,6 +14,8 @@ export class NavbarComponent {
     private _router: Router
   ) { }
 
+  isScrolled = false;
+
   toggle_menu() {
     const body = document.getElementById("navbar");
     if (body != null)
@@ -21,6 +23,11 @@ export class NavbarComponent {
 
     const elements = document.getElementsByClassName("mobile-nav-toggle");
     elements[0].classList.toggle('d-none');
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 0;
   }
 
   /**
@@ -36,5 +43,7 @@ export class NavbarComponent {
   go_to_login_page() {
     this._router.navigateByUrl('login');
   }
+
+  
 
 }
