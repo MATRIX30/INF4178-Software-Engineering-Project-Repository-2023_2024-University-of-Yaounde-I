@@ -25,4 +25,5 @@ const domaine = (sequelize, DataTypes) => {
 
   return Domaine;
 };
-export default domaine;
+// export { domaine};
+module.exports = {domaine};

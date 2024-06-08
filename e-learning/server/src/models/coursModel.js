@@ -23,6 +23,14 @@ const cours = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      // etudiant_Id: {
+      //   type: DataTypes.INTEGER,
+      //   unique: false,
+      //   references: {
+      //     model: "etudiant",
+      //     key: "etudiantId",
+      //   },
+      // },
     },
     {
       timestamps: true,
@@ -30,6 +38,13 @@ const cours = (sequelize, DataTypes) => {
       updateAt: "updateTimestamp",
     }
   );
+
+  Cours.associate = (models) => {
+    Cours.belongsToMany(models.Etudiant, {
+      through: "EtudiantCours",
+      foreignKey: "coursId",
+    });
+  };
 
   return Cours;
 };
@@ -103,4 +118,5 @@ const question = (sequelize, DataTypes) => {
 
   return Question;
 };
-export { cours, evaluation, question };
+// export { cours, evaluation, question };
+module.exports = { cours, evaluation, question };

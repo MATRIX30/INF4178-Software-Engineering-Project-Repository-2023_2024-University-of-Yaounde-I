@@ -31,7 +31,7 @@ const etudiant = (sequelize, DataTypes) => {
         allowNull: false,
       },
       sexe: {
-        type: DataTypes.STRING ,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       role: {
@@ -53,7 +53,13 @@ const etudiant = (sequelize, DataTypes) => {
       updateAt: "updateTimestamp",
     }
   );
- 
+  // Association avec le modèle Cours
+  Etudiant.associate = (models) => {
+    Etudiant.belongsToMany(models.Cours, {
+      through: "EtudiantCours",
+      foreignKey: "etudiantId",
+    });
+  };
   return Etudiant;
 };
 const formateur = (sequelize, DataTypes) => {
@@ -170,6 +176,7 @@ const administrateur = (sequelize, DataTypes) => {
     }
   );
 
-  return Administrateur; 
+  return Administrateur;
 };
-export { etudiant, formateur, administrateur };
+// export { etudiant, formateur, administrateur };
+module.exports = { etudiant, formateur, administrateur };
