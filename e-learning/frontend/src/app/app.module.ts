@@ -49,6 +49,7 @@ import { CourseCardComponent } from './Components/components/course-card/course-
 import { HomeUserComponent } from './Components/pages/home-user/home-user.component';
 import { CustomAlertComponent } from './Components/components/custom-alert/custom-alert.component';
 import { CoursComponent } from './Components/pages/cours/cours.component';
+import { HomeUserDashboardComponent } from './Components/pages/home-user-dashboard/home-user-dashboard.component';
 
 
 
@@ -67,7 +68,8 @@ import { CoursComponent } from './Components/pages/cours/cours.component';
     CourseCardComponent,
     HomeUserComponent,
     CustomAlertComponent,
-    CoursComponent
+    CoursComponent,
+    HomeUserDashboardComponent
   ],
   imports: [
     MatDividerModule,

@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <!-- sidebar -->
     <div class="col-lg-3">
@@ -11,7 +11,7 @@
         <button
           class="w-100 d-flex justify-content-start"
           mat-button
-          routerLink="/user/home/dashboard"
+          routerLink="user/home/dashboard"
           routerLinkActive="nav-item-active"
         >
           <mat-list-item
@@ -98,15 +98,12 @@
           >
         </button>
       </mat-list>
+    </div>
 
-      <!-- content -->
-      <div class="col-lg-9">
-        <!-- title -->
-        <div>
-          <span class="fs-3 fw-semibold"> Tableau de bord </span>
-        </div>
-      </div>
+    <!-- content -->
+    <div class="col-lg-9">
+      <router-outlet></router-outlet>
     </div>
   </div>
-  <app-footer></app-footer>
 </div>
+<app-footer></app-footer>

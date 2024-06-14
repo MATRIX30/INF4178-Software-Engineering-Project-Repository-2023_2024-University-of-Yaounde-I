@@ -26,7 +26,7 @@ export class ConnexionComponent {
   }
 
   connexion() {
-    this._router.navigateByUrl('/user/home');
+    this._router.navigateByUrl('/user/home/dashboard');
   }
 
 }
