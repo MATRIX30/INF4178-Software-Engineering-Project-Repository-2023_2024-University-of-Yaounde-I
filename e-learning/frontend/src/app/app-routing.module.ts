@@ -4,6 +4,7 @@ import { HomeComponent } from './Components/pages/home/home.component';
 import { InscriptionComponent } from './Components/pages/inscription/inscription.component';
 import { ConnexionComponent } from './Components/pages/connexion/connexion.component';
 import { HomeUserComponent } from './Components/pages/home-user/home-user.component';
+import { CoursComponent } from './Components/pages/cours/cours.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,6 +12,8 @@ const routes: Routes = [
   { path: 'register', component: InscriptionComponent, title: "Institute - Inscription" },
   { path: 'login', component: ConnexionComponent, title: "Institute - Connexion" },
   { path: 'user/home', component: HomeUserComponent, title: "Utilisateur - Tableau de bord" },
+  { path: 'cours', component: CoursComponent, title: "Institute-Cours" },
+
 
 ];
 

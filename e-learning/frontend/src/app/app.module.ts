@@ -48,6 +48,7 @@ import { DomainCardComponent } from './Components/components/domain-card/domain-
 import { CourseCardComponent } from './Components/components/course-card/course-card.component';
 import { HomeUserComponent } from './Components/pages/home-user/home-user.component';
 import { CustomAlertComponent } from './Components/components/custom-alert/custom-alert.component';
+import { CoursComponent } from './Components/pages/cours/cours.component';
 
 
 
@@ -65,7 +66,8 @@ import { CustomAlertComponent } from './Components/components/custom-alert/custo
     DomainCardComponent,
     CourseCardComponent,
     HomeUserComponent,
-    CustomAlertComponent
+    CustomAlertComponent,
+    CoursComponent
   ],
   imports: [
     MatDividerModule,
