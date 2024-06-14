@@ -20,6 +20,7 @@
   --danger-color: #F60D2B;
   --light-color: #F6F6F6;
   --gray-color: #e6e5e5;
+  --light-blue-color: #F2F8FF;
 }
 
 :host {
@@ -224,6 +225,9 @@
 .text-secondary-dark {
   color: var(--secondary-dark-color) !important;
 }
+.bg-blue-light{
+  background-color: var(--light-blue-color);
+}
 
 .bg-light {
   background-color: var(--light-color) !important;
@@ -297,6 +301,9 @@ input {
 .primary-dark-button {
   color: white !important;
   background-color: var(--secondary-dark-color) !important;
+}
+.max-width-1000{
+  max-width: 1000px;
 }
 
 body {
