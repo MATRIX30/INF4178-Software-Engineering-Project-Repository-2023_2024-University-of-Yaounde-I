@@ -2,7 +2,8 @@
     background-image: url(../../../../assets/images/login.png);
     background-repeat: no-repeat;
     background-size: cover;
-    object-fit: cover;
+    height: 100vh;
+    /* object-fit: cover; */
 }
 
 .image-register::after {
@@ -28,9 +29,11 @@
 .mw-400 {
     max-width: 400px;
 }
+
 .mw-600 {
     max-width: 800px;
 }
+
 .mw-650 {
     max-width: 650px;
 }
@@ -38,9 +41,9 @@
 .text-orange {
     color: var(--orange-color) !important;
 }
+
 .container {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     gap: 155px;
-  }
-  
+}

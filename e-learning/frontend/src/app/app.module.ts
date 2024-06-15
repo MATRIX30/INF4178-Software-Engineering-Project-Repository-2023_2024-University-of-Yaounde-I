@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
 import { MatIconModule } from '@angular/material/icon';
@@ -46,6 +47,9 @@ import { ConnexionComponent } from './Components/pages/connexion/connexion.compo
 import { DomainCardComponent } from './Components/components/domain-card/domain-card.component';
 import { CourseCardComponent } from './Components/components/course-card/course-card.component';
 import { HomeUserComponent } from './Components/pages/home-user/home-user.component';
+import { CustomAlertComponent } from './Components/components/custom-alert/custom-alert.component';
+import { CoursComponent } from './Components/pages/cours/cours.component';
+import { HomeUserDashboardComponent } from './Components/pages/home-user-dashboard/home-user-dashboard.component';
 
 
 
@@ -62,10 +66,14 @@ import { HomeUserComponent } from './Components/pages/home-user/home-user.compon
     ConnexionComponent,
     DomainCardComponent,
     CourseCardComponent,
-    HomeUserComponent
+    HomeUserComponent,
+    CustomAlertComponent,
+    CoursComponent,
+    HomeUserDashboardComponent
   ],
   imports: [
     MatDividerModule,
+    MatTabsModule,
     MatExpansionModule,
     BrowserAnimationsModule,
     AppRoutingModule,
