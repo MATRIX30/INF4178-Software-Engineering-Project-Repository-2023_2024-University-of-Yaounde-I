@@ -23,14 +23,6 @@ const cours = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      // etudiant_Id: {
-      //   type: DataTypes.INTEGER,
-      //   unique: false,
-      //   references: {
-      //     model: "etudiant",
-      //     key: "etudiantId",
-      //   },
-      // },
     },
     {
       timestamps: true,
@@ -39,12 +31,13 @@ const cours = (sequelize, DataTypes) => {
     }
   );
 
-  Cours.associate = (models) => {
-    Cours.belongsToMany(models.Etudiant, {
-      through: "EtudiantCours",
-      foreignKey: "coursId",
-    });
-  };
+  // Association avec le modèle user
+  // Cours.associate = (models) => {
+  //   School.hasMany(models.user, {
+  //     foreignKey: "coursId",
+  //     sourceKey: "coursid",
+  //   });
+  // };
 
   return Cours;
 };
@@ -54,7 +47,7 @@ const evaluation = (sequelize, DataTypes) => {
   const Evaluation = sequelize.define(
     "evaluation",
     {
-      coursId: {
+      evaluationId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -106,7 +99,7 @@ const question = (sequelize, DataTypes) => {
       },
       score: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
     },
     {
@@ -119,4 +112,38 @@ const question = (sequelize, DataTypes) => {
   return Question;
 };
 // export { cours, evaluation, question };
-module.exports = { cours, evaluation, question };
+
+// evaluation model
+const chapitre = (sequelize, DataTypes) => {
+  const chapitre = sequelize.define(
+    "chapitre",
+    {
+      chapitreId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      position:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      titre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      textes: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+
+    },
+    {
+      timestamps: true,
+      createdAt: true,
+      updateAt: "updateTimestamp",
+    }
+  );
+
+  return chapitre;
+};
+module.exports = { cours, evaluation, question, chapitre };

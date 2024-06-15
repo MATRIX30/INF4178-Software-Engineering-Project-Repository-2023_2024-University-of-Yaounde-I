@@ -3,8 +3,13 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 // importation des models
 
-const { etudiant, formateur, administrateur } = require("../models/userModel");
-const { cours, evaluation, question } = require("../models/coursModel");
+const { student, formateur } = require("../models/userModel");
+const {
+  cours,
+  evaluation,
+  question,
+  chapitre,
+} = require("../models/coursModel");
 const { domaine } = require("../models/domainModel");
 
 // configuration de la base de donnees
@@ -26,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
 } else {
   // sequelize = new Sequelize({
   //   dialect: "sqlite",
-  //   storage: "/home/developpeur/test.db", // Chemin vers le fichier SQLite
+  //   storage: "./institute", // Chemin vers le fichier SQLite
   // });
 
   // connection a la db en local
@@ -48,16 +53,75 @@ const DomainTable = domaine(sequelize, DataTypes);
 const CoursTable = cours(sequelize, DataTypes);
 const EvaluationTable = evaluation(sequelize, DataTypes);
 const QuestionTable = question(sequelize, DataTypes);
-const EtudiantTable = etudiant(sequelize, DataTypes);
+const StudentTable = student(sequelize, DataTypes);
 const FormateurTable = formateur(sequelize, DataTypes);
-const AdministrateurTable = administrateur(sequelize, DataTypes);
+const ChapitreTable = chapitre(sequelize, DataTypes);
+//======================== definition des associations entre les tables:======================================
+// 1) cours et users ========================================
+CoursTable.belongsToMany(StudentTable, { through: "UserCours" });
+StudentTable.belongsToMany(CoursTable, { through: "UserCours" });
+
+// 2) cours et evaluations================================
+CoursTable.hasMany(
+  EvaluationTable
+  //   , {
+  //   foreignKey: "clubId",
+  // }
+);
+EvaluationTable.belongsTo(CoursTable);
+
+//3)  evaluations et questions =============================
+EvaluationTable.hasMany(
+  QuestionTable
+  //   , {
+  //   foreignKey: "clubId",
+  // }
+);
+QuestionTable.belongsTo(EvaluationTable);
+//4)  cours et domaines =============================
+DomainTable.hasMany(
+  CoursTable
+  //   , {
+  //   foreignKey: "clubId",
+  // }
+);
+CoursTable.belongsTo(DomainTable);
+
+//5)  cours et formateur =============================
+FormateurTable.hasMany(
+ CoursTable
+  //   , {
+  //   foreignKey: "clubId",
+  // }
+);
+CoursTable.belongsTo(FormateurTable);
+//6)  cours et formateur =============================
+DomainTable.hasMany(
+ FormateurTable
+  //   , {
+  //   foreignKey: "clubId",
+  // }
+);
+FormateurTable.belongsTo(DomainTable);
+
+//7)  cours et chapitres =============================
+CoursTable.hasMany(
+ ChapitreTable
+  //   , {
+  //   foreignKey: "clubId",
+  // }
+);
+ChapitreTable.belongsTo(CoursTable);
+
 
 //association de la baase de donnees
 
 function initDB() {
   console.log("Initialisation des tables de la base de données");
   return sequelize
-    .sync({ force: true })
+    .sync(
+      //{ force: true }
+      )
     .then(() => {
       console.log("Tables have been created");
     })
@@ -66,17 +130,15 @@ function initDB() {
     });
 }
 
-
 module.exports = {
   CoursTable,
-  AdministrateurTable,
   EvaluationTable,
   initDB,
   CoursTable,
   QuestionTable,
-  EtudiantTable,
-  FormateurTable,
+  StudentTable,
   DomainTable,
+  FormateurTable,
 };
 
 // .then(_=>{

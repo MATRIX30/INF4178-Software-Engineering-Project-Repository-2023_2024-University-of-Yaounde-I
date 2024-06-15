@@ -1,8 +1,8 @@
-const etudiant = (sequelize, DataTypes) => {
-  const Etudiant = sequelize.define(
-    "etudiant",
+const student = (sequelize, DataTypes) => {
+  const student = sequelize.define(
+    "student",
     {
-      etudiantId: {
+      studentId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
@@ -54,16 +54,19 @@ const etudiant = (sequelize, DataTypes) => {
     }
   );
   // Association avec le modèle Cours
-  Etudiant.associate = (models) => {
-    Etudiant.belongsToMany(models.Cours, {
-      through: "EtudiantCours",
-      foreignKey: "etudiantId",
-    });
-  };
-  return Etudiant;
+  // student.associate = (models) => {
+  //   student.belongsToMany(models.Cours, {
+  //     through: "studentCours",
+  //     foreignKey: "studentId",
+  //   });
+  //};
+  return student;
 };
+
+// export { student, formateur, administrateur };
+
 const formateur = (sequelize, DataTypes) => {
-  const Formateur = sequelize.define(
+  const formateur = sequelize.define(
     "formateur",
     {
       formateurId: {
@@ -110,63 +113,9 @@ const formateur = (sequelize, DataTypes) => {
           min: 6,
         },
       },
-    },
-    {
-      timestamps: true,
-      createdAt: true,
-      updateAt: "updateTimestamp",
-    }
-  );
-
-  return Formateur;
-};
-const administrateur = (sequelize, DataTypes) => {
-  const Administrateur = sequelize.define(
-    "administrateur",
-    {
-      administrateurId: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      nom: {
+      cv: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      prenom: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      age: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
-        unique: {
-          msg: "l'email est déjà utilisé",
-        },
-        allowNull: false,
-      },
-      preference: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      sexe: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      role: {
-        type: DataTypes.STRING,
-        unique: false,
-        allowNull: false,
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          min: 6,
-        },
+        allowNull: true,
       },
     },
     {
@@ -176,7 +125,15 @@ const administrateur = (sequelize, DataTypes) => {
     }
   );
 
-  return Administrateur;
+  // Association avec le modèle Cours
+  // student.associate = (models) => {
+  //   student.belongsToMany(models.Cours, {
+  //     through: "studentCours",
+  //     foreignKey: "studentId",
+  //   });
+  //};
+
+  return formateur;
 };
-// export { etudiant, formateur, administrateur };
-module.exports = { etudiant, formateur, administrateur };
+
+module.exports = { student, formateur };
