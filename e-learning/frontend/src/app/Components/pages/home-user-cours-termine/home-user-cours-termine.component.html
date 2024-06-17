@@ -1,0 +1,40 @@
+<!-- title -->
+<div
+  class="fs-3 text-dark mb-3 sticky-top t-86 d-flex align-items-center bg-white pb-2"
+  style="z-index: 996 !important"
+>
+  <button
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample"
+    aria-controls="offcanvasExample"
+    mat-icon-button
+    class="me-2 d-lg-none"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span> Cours terminés</span>
+</div>
+
+<div>
+  <!-- search bar -->
+  <div class="mtext-secondary">
+    <div class="col-md-6">
+      <mat-form-field class="w-100" appearance="outline">
+        <input matInput ngModel placeholder="Rechercher" />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- content -->
+  <div class="row mb-3">
+    <div class="col-xl-4 col-md-6">
+      <app-course-card [course]="null" state="finished"></app-course-card>
+    </div>
+    <div class="col-xl-4 col-md-6">
+      <app-course-card [course]="null" state="finished"></app-course-card>
+    </div>
+    <div class="col-xl-4 col-md-6">
+      <app-course-card [course]="null" state="finished"></app-course-card>
+    </div>
+  </div>
+</div>

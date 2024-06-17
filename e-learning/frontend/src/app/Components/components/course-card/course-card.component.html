@@ -1,4 +1,108 @@
+<!-- finish ============================================================== -->
 <div
+  *ngIf="state == 'finished'"
+  class="p-3 rounded-3 border-1 border-top border-bottom border-start border-end border-dark-subtile d-flex flex-row align-items-start mb-4"
+>
+  <!-- course characteristics -->
+  <div>
+    <div class="d-flex align-items-center justify-content-between w-100 mb-3">
+      <!-- author -->
+      <span class="text-dark text-decoration-underline">Emmanuel</span>
+      <!-- icon -->
+      <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+    </div>
+    <!-- course title -->
+    <div class="mb-2 d-flex flex-column">
+      <span class="fs-5 fw-semibold mb-2">UI/UX Design</span>
+      <span class="rounded-1 text-primary small"> Intermediare</span>
+    </div>
+    <!-- course description -->
+    <p class="text-secondary mb-3">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
+      assumenda voluptas
+    </p>
+    <!-- domain & chapters -->
+    <div class="d-flex mb-3">
+      <span class="rounded-1 bg-domain-title small text-white p-2 me-3">
+        INFORMATIQUE</span
+      >
+      <span class="rounded-1 bg-secondary small text-white p-2 me-2">
+        12 chapitres</span
+      >
+    </div>
+
+    <!-- Progression bar -->
+    <div class="d-flex flex-column mb-3">
+      <mat-progress-bar
+        class="mb-2 w-100"
+        mode="determinate"
+        value="100"
+      ></mat-progress-bar>
+      <span class="small text-secondary">Chapitre 12 / 12</span>
+    </div>
+    <!-- button section -->
+    <div class="d-flex align-items-center">
+      <button class="w-100 bg-light me-2" mat-stroked-button>Consulter</button>
+      <button class="w-100" color="primary" mat-stroked-button>
+        <mat-icon matPrefix>download</mat-icon>
+        Attestation
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Following course ===============================================================-->
+<div
+  *ngIf="state == 'following'"
+  class="p-3 rounded-3 border-1 border-top border-bottom border-start border-end border-dark-subtile d-flex flex-row align-items-start mb-4"
+>
+  <!-- course characteristics -->
+  <div>
+    <div class="d-flex align-items-center justify-content-between w-100 mb-3">
+      <!-- author -->
+      <span class="text-dark text-decoration-underline">Emmanuel</span>
+      <!-- icon -->
+      <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+    </div>
+    <!-- course title -->
+    <div class="mb-2 d-flex flex-column">
+      <span class="fs-5 fw-semibold mb-2">UI/UX Design</span>
+      <span class="rounded-1 text-primary small"> Intermediare</span>
+    </div>
+
+    <!-- course description -->
+    <p class="text-secondary mb-3">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio
+      assumenda voluptas
+    </p>
+
+    <!-- domain & chapters -->
+    <div class="d-flex mb-3">
+      <span class="rounded-1 bg-domain-title small text-white p-2 me-3">
+        INFORMATIQUE</span
+      >
+      <span class="rounded-1 bg-secondary small text-white p-2 me-2">
+        12 chapitres</span
+      >
+    </div>
+
+    <!-- Progression bar -->
+    <div class="d-flex flex-column mb-3">
+      <mat-progress-bar
+        class="mb-2 w-100"
+        mode="determinate"
+        value="40"
+      ></mat-progress-bar>
+      <span class="small text-secondary">Chapitre 7 / 12</span>
+    </div>
+    <!-- button section -->
+    <button class="w-100 bg-light" mat-stroked-button>Poursuivre</button>
+  </div>
+</div>
+
+<!-- Not following course ============================================================ -->
+<div
+  *ngIf="state == 'default'"
   class="p-3 rounded-3 border-1 border-top border-bottom border-start border-end border-dark-subtile d-flex flex-column align-items-start mb-4"
 >
   <!-- course image -->
@@ -18,14 +122,14 @@
   </div>
 
   <!-- course title -->
-  <div class="mb-2">
-    <span class="fs-5 fw-semibold">UI/UX DESIGN</span>
+  <div class="mb-2 d-flex flex-column">
+    <span class="fs-5 fw-semibold mb-2">UI/UX Design</span>
+    <span class="rounded-1 text-primary small"> Intermediare</span>
   </div>
 
   <!-- course description -->
   <p class="text-secondary mb-3">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, modi alias
-    repellendus perspiciatis quas eligendi inventore earum.
+    {{ course.description }}
   </p>
 
   <!-- domain & chapters -->
@@ -35,7 +139,7 @@
     >
 
     <span class="rounded-1 bg-secondary small text-white p-2 me-2">
-      12 chapitres</span
+      {{ course.nombreModule }} chapitres</span
     >
   </div>
 

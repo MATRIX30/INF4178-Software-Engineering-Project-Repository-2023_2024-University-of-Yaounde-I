@@ -9,5 +9,6 @@ export class AppService {
 
   host = '192.168.43.245';
   port = '8080';
-  baseUrl = `http://${this.host}:${this.port}`;
+  // baseUrl = `http://${this.host}:${this.port}`;
+  baseUrl = `https://e-learning-production-00fa.up.railway.app`;
 }

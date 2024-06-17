@@ -6,5 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./course-card.component.css']
 })
 export class CourseCardComponent {
-  @Input() course!: string | null;
+  @Input() course!: any | null;
+  @Input() state!: string | null;
+
+  ngOnInit() { }
 }

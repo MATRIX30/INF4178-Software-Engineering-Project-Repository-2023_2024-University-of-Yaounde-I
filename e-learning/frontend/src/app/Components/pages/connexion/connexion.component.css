@@ -31,7 +31,7 @@
 }
 
 .mw-600 {
-    max-width: 800px;
+    max-width: 500px;
 }
 
 .mw-650 {
@@ -42,8 +42,8 @@
     color: var(--orange-color) !important;
 }
 
-.container {
+/* .container {
     display: flex;
     flex-direction: row;
     gap: 155px;
-}
+} */

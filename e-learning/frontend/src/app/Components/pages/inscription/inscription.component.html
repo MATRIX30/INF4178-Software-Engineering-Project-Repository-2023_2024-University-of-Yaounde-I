@@ -1,13 +1,13 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
-  <div class="row vh-100">
+  <div class="row">
     <div
       class="col-md-6 image-register d-none d-md-flex d-lg-flex d-xl-flex p-0"
     ></div>
 
     <!-- text -->
     <div
-      class="position-absolute d-flex flex-column bottom-0 start-0 ps-5 pb-5 mw-600"
+      class="position-absolute d-flex flex-column bottom-0 start-0 ps-5 pb-5 mw-600 w-100"
     >
       <span routerLink="/" class="text-light fs-3 mb-2 fw-semibold"
         >INSTITUTE</span
@@ -65,7 +65,13 @@
             <div class="col-sm-6">
               <mat-form-field class="w-100" appearance="outline">
                 <mat-label>Nom</mat-label>
-                <input matInput ngModel placeholder="Prénom" />
+                <input
+                  matInput
+                  [errorStateMatcher]="matcher"
+                  [formControl]="nomFormControl"
+                  [(ngModel)]="nom"
+                  placeholder="Prénom"
+                />
               </mat-form-field>
             </div>
 
@@ -73,15 +79,27 @@
             <div class="col-sm-6">
               <mat-form-field class="w-100" appearance="outline">
                 <mat-label>Prénom</mat-label>
-                <input matInput ngModel placeholder="Prénom" />
+                <input
+                  matInput
+                  [errorStateMatcher]="matcher"
+                  [formControl]="prenomFormControl"
+                  [(ngModel)]="prenom"
+                  placeholder="Prénom"
+                />
               </mat-form-field>
             </div>
 
             <!-- nom d'utilisateur -->
             <div class="col-md-12">
               <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Nom d'utilisateur</mat-label>
-                <input matInput ngModel placeholder="Nom d'utilisateur" />
+                <mat-label>Email</mat-label>
+                <input
+                  matInput
+                  [errorStateMatcher]="matcher"
+                  [formControl]="emailFormControl"
+                  [(ngModel)]="email"
+                  placeholder="Email"
+                />
               </mat-form-field>
             </div>
 
@@ -91,7 +109,9 @@
                 <mat-label>Mot de passe</mat-label>
                 <input
                   matInput
-                  ngModel
+                  [errorStateMatcher]="matcher"
+                  [formControl]="passwordFormControl"
+                  [(ngModel)]="password"
                   placeholder="Mot de passe"
                   type="{{ showPassword ? 'text' : 'password' }}"
                 />
@@ -113,26 +133,32 @@
                 <mat-label>Confirmer le mot de passe</mat-label>
                 <input
                   matInput
-                  ngModel
+                  [errorStateMatcher]="matcher"
+                  [formControl]="confirmpasswordFormControl"
+                  [(ngModel)]="confirmpassword"
                   placeholder="Mot de passe"
                   type="password"
                 />
               </mat-form-field>
             </div>
 
+            <!-- formateur fieldd serction -->
+            <mat-checkbox
+              [checked]="isFormateurChecked"
+              [(ngModel)]="isFormateurChecked"
+              class="example-margin"
+              >Je suis formateur</mat-checkbox
+            >
+
             <!-- button section -->
             <div class="mt-2 text-center">
               <button
+              (click)="register()"
                 mat-raised-button
                 class="shadow rounded-pill secondary-light-button w-100 mw-400"
               >
                 Inscription
               </button>
-            </div>
-
-            <!-- error section -->
-            <div class="mt-5 text-center">
-              <span class="text-danger text-center">Formulaire invalide</span>
             </div>
           </div>
         </div>

@@ -50,6 +50,13 @@ import { HomeUserComponent } from './Components/pages/home-user/home-user.compon
 import { CustomAlertComponent } from './Components/components/custom-alert/custom-alert.component';
 import { CoursComponent } from './Components/pages/cours/cours.component';
 import { HomeUserDashboardComponent } from './Components/pages/home-user-dashboard/home-user-dashboard.component';
+import { BasicCardComponent } from './Components/components/basic-card/basic-card.component';
+import { HomeUserCoursNonTermineComponent } from './Components/pages/home-user-cours-non-termine/home-user-cours-non-termine.component';
+import { HomeUserCoursTermineComponent } from './Components/pages/home-user-cours-termine/home-user-cours-termine.component';
+import { EvaluationDispnibleComponent } from './Components/pages/evaluation-dispnible/evaluation-dispnible.component';
+import { EvaluationTermineComponent } from './Components/pages/evaluation-termine/evaluation-termine.component';
+import { EvaluationCardComponent } from './Components/components/evaluation-card/evaluation-card.component';
+import { EvaluationComponent } from './Components/pages/evaluation/evaluation.component';
 
 
 
@@ -69,7 +76,14 @@ import { HomeUserDashboardComponent } from './Components/pages/home-user-dashboa
     HomeUserComponent,
     CustomAlertComponent,
     CoursComponent,
-    HomeUserDashboardComponent
+    HomeUserDashboardComponent,
+    BasicCardComponent,
+    HomeUserCoursNonTermineComponent,
+    HomeUserCoursTermineComponent,
+    EvaluationDispnibleComponent,
+    EvaluationTermineComponent,
+    EvaluationCardComponent,
+    EvaluationComponent
   ],
   imports: [
     MatDividerModule,

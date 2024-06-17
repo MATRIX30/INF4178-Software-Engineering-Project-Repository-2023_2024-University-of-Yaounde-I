@@ -44,38 +44,6 @@
       </div>
     </div>
 
-    <!-- divider -->
-    <mat-divider class="mb-4"></mat-divider>
-
-    <!-- search bar section -->
-    <div class="container mt-4 d-flex flex-column align-items-center">
-      <!-- text -->
-      <span class="mb-3 fs-4 text-dark text-center"
-        >Accédez à nos ressources d'apprentissage</span
-      >
-
-      <!-- search bar -->
-      <div class="row w-100 max-width-1000 mb-4">
-        <div class="col-sm-9">
-          <mat-form-field class="w-100" appearance="outline">
-            <mat-label>Mot clé</mat-label>
-            <input matInput ngModel placeholder="Mot clé" />
-            <mat-icon matPrefix class="text-secondary">search</mat-icon>
-          </mat-form-field>
-        </div>
-
-        <div class="col-sm-3">
-          <button
-            mat-raised-button
-            style="height: 56px !important"
-            class="primary-dark-button w-100"
-          >
-            Rechercher
-          </button>
-        </div>
-      </div>
-    </div>
-
     <!-- institute presentation -->
     <div class="mb-4 pt-5 pb-3 bg-blue-light">
       <div class="container">
@@ -281,22 +249,40 @@
       <!-- content -->
       <div class="row">
         <div class="col-md-4">
-          <app-course-card [course]="null"></app-course-card>
+          <app-course-card
+            [course]="_coursService.coursList[0]"
+            state="default"
+          ></app-course-card>
         </div>
         <div class="col-md-4">
-          <app-course-card [course]="null"></app-course-card>
+          <app-course-card
+            [course]="_coursService.coursList[1]"
+            state="default"
+          ></app-course-card>
         </div>
         <div class="col-md-4">
-          <app-course-card [course]="null"></app-course-card>
+          <app-course-card
+            [course]="_coursService.coursList[2]"
+            state="default"
+          ></app-course-card>
         </div>
         <div class="col-md-4">
-          <app-course-card [course]="null"></app-course-card>
+          <app-course-card
+            [course]="_coursService.coursList[3]"
+            state="default"
+          ></app-course-card>
         </div>
         <div class="col-md-4">
-          <app-course-card [course]="null"></app-course-card>
+          <app-course-card
+            [course]="_coursService.coursList[4]"
+            state="default"
+          ></app-course-card>
         </div>
         <div class="col-md-4">
-          <app-course-card [course]="null"></app-course-card>
+          <app-course-card
+            [course]="_coursService.coursList[5]"
+            state="default"
+          ></app-course-card>
         </div>
       </div>
     </div>

@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { Site } from 'src/app/Models/site.interface';
 import { Ville } from 'src/app/Models/ville.interface';
+import { CoursService } from 'src/app/Services/Cours/cours.service';
+import { DomainService } from 'src/app/Services/Domain/domain.service';
 import { LoaderService } from 'src/app/Services/Loader/loader.service';
 
 @Component({
@@ -21,12 +23,47 @@ export class HomeComponent {
     protected _loaderService: LoaderService,
     private _router: Router,
     private _matDialog: MatDialog,
+    protected _coursService: CoursService,
+    protected _domainService: DomainService
   ) { }
 
   // Matcher
   matcher = new ErrorStateMatcher();
 
+  getCours() {
+    this._coursService.getAll().subscribe(response => {
+      // log response
+      console.log(response);
+
+      if (response.data.errors != undefined) {
+        this._notifierService.notify('error', 'Une erreur est survenue');
+      } else {
+        this._coursService.coursList = JSON.parse(response.data + '');
+      }
+    });
+  }
+
+  getDomains() {
+    this._domainService.getAll().subscribe(response => {
+      if (response.data.errors != undefined) {
+        this._notifierService.notify('error', 'Une erreur est survenue');
+        console.log(response);
+
+      } else {
+        this._domainService.domaineList = JSON.parse(response.data + '');
+      }
+
+      // log response
+      console.log(response);
+    });
+  }
+
   ngOnInit() {
+    // get domain
+    // this.getDomains();
+
+    // get cours
+    this.getCours();
 
   }
 

@@ -1,1 +1,111 @@
-<p>home-user-dashboard works!</p>
+<!-- title -->
+<div
+  class="fs-3 text-dark mb-3 sticky-top t-86 d-flex align-items-center bg-white pb-2 pt-3"
+  style="z-index: 996 !important"
+>
+  <button
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample"
+    aria-controls="offcanvasExample"
+    mat-icon-button
+    class="me-2 d-lg-none"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span> Tableau de bord </span>
+</div>
+
+<!-- card - section -->
+<div class="row mb-3">
+
+  <!-- divider -->
+  <div class="d-flex flex-column mb-3">
+    <span class="small text-secondary">Cours</span>
+    <mat-divider></mat-divider>
+  </div>
+
+  <!-- total cours -->
+  <div class="col-md-4 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-bookmark'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Total des cours'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+
+  <!-- cours termines -->
+  <div class="col-md-4 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-check'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Cours terminés'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+
+  <!-- cours non termines -->
+  <div class="col-md-4 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-arrow-up'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Cours non terminés'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+
+  <!-- divider -->
+  <div class="d-flex flex-column mb-3">
+    <span class="small text-secondary">Évaluations</span>
+    <mat-divider></mat-divider>
+  </div>
+
+  <!-- Total evaluations -->
+  <div class="col-md-4 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-bookmark'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Total des évaluations'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-check'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Évaluations terminées'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-arrow-up'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Évaluations à venir'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+</div>
+
+<!-- Recemment consulter -->
+<div>
+  <!-- text -->
+  <div class="mb-3 text-secondary">
+    <span>Récemment consultés</span>
+  </div>
+
+  <!-- content -->
+  <div class="row mb-3">
+    <div class="col-xl-4 col-md-6">
+      <app-course-card [course]="null" state="following"></app-course-card>
+    </div>
+    <div class="col-xl-4 col-md-6">
+      <app-course-card [course]="null" state="following"></app-course-card>
+    </div>
+    <div class="col-xl-4 col-md-6">
+      <app-course-card [course]="null" state="following"></app-course-card>
+    </div>
+  </div>
+</div>
