@@ -1,5 +1,5 @@
 import { HttpStatusCode } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,6 +10,7 @@ import { Ville } from 'src/app/Models/ville.interface';
 import { CoursService } from 'src/app/Services/Cours/cours.service';
 import { DomainService } from 'src/app/Services/Domain/domain.service';
 import { LoaderService } from 'src/app/Services/Loader/loader.service';
+import { PdfService } from 'src/app/Services/Pdf/pdf.service';
 
 @Component({
   selector: 'app-home',
@@ -24,8 +25,11 @@ export class HomeComponent {
     private _router: Router,
     private _matDialog: MatDialog,
     protected _coursService: CoursService,
-    protected _domainService: DomainService
+    protected _domainService: DomainService,
+    private _pdfService: PdfService
   ) { }
+
+  @ViewChild('content') content!: ElementRef;
 
   // Matcher
   matcher = new ErrorStateMatcher();
@@ -60,7 +64,9 @@ export class HomeComponent {
 
   ngOnInit() {
     // get domain
-    // this.getDomains();
+    this.getDomains();
+
+    // this._pdfService.makePdf(this.content);
 
     // get cours
     this.getCours();

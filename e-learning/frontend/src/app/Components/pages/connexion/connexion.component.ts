@@ -24,6 +24,7 @@ export class ConnexionComponent {
   // user variables
   email: string = "";
   password: string = "";
+  role: string = "";
 
   // matcher
   matcher: ErrorStateMatcher = new ErrorStateMatcher();
@@ -31,6 +32,7 @@ export class ConnexionComponent {
   // form control
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required]);
+  roleFormControl = new FormControl('', [Validators.required]);
 
   // toggle visibility icon on password variable
   showPassword = true;
@@ -44,12 +46,12 @@ export class ConnexionComponent {
   }
 
   connexion() {
-    if (this.emailFormControl.valid && this.passwordFormControl.valid) {
+    if (this.emailFormControl.valid && this.passwordFormControl.valid && this.roleFormControl) {
 
       try {
         // start loader
         this._loaderService.setIsLoading(true);
-        this._authService.login(this.email, this.password).subscribe(response => {
+        this._authService.login(this.email, this.password, this.role).subscribe(response => {
 
           // stop loader
           this._loaderService.setIsLoading(false);
@@ -71,6 +73,9 @@ export class ConnexionComponent {
 
         });
       } catch (error) {
+        // stop loader
+        this._loaderService.setIsLoading(false);
+        
         this._notifierService.notify('error', 'Une erreur est survenue');
         console.error(error);
 

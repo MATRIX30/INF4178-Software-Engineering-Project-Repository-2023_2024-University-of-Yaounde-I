@@ -14,10 +14,10 @@ import { EvaluationComponent } from './Components/pages/evaluation/evaluation.co
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, title: "Institute - Accueil" },
-  { path: 'register', component: InscriptionComponent, title: "Institute - Inscription" },
-  { path: 'login', component: ConnexionComponent, title: "Institute - Connexion" },
-  { path: 'cours', component: CoursComponent, title: "Institute-Cours" },
+  { path: 'home', component: HomeComponent, title: "Accueil" },
+  { path: 'register', component: InscriptionComponent, title: "Inscription" },
+  { path: 'login', component: ConnexionComponent, title: "Connexion" },
+  { path: 'cours', component: CoursComponent, title: "Cours" },
   {
     path: 'user/home', component: HomeUserComponent, children: [
       { path: 'dashboard', component: HomeUserDashboardComponent },
