@@ -16,7 +16,7 @@
       <!-- Formulaire -->
       <div class="w-100 max-width-100 mb-4">
         <div class="row">
-          <div class="col-md-3 mb-3">
+          <div class="col-md-3 mb-4">
             <button
               (click)="rechercher()"
               [disabled]="_loaderService.isLoading"
@@ -34,16 +34,15 @@
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>Domaine</mat-label>
               <mat-select
+                [(ngModel)]="domainID"
                 placeholder="Sélectionner un domaine"
-                (selectionChange)="onchangeDomain($event)"
+                (valueChange)="onchangeDomain($event)"
               >
                 <mat-option
                   *ngFor="let d of _domainService.domaineList"
-                  [value]="d.id"
+                  [value]="d.domaineId"
                   >{{ d.nom }}</mat-option
                 >
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="one">First option</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -51,10 +50,13 @@
           <div class="col-md-5">
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>Sujet</mat-label>
-              <mat-select placeholder="Sélectionner un sujet">
+              <mat-select
+                [(ngModel)]="sujetID"
+                placeholder="Sélectionner un sujet"
+              >
                 <mat-option
-                  *ngFor="let s; in: sujetListFilter"
-                  [value]="s.id"
+                  *ngFor="let s of sujetListFilter"
+                  [value]="s.sujetId"
                   >{{ s.nom }}</mat-option
                 >
               </mat-select>
@@ -72,9 +74,9 @@
 
       <div *ngIf="!_loaderService.isLoading">
         <!-- course section -->
-        <div *ng class="mb-3">
+        <div class="mb-3">
           <div class="row">
-            <div *ngFor="let c of _coursService.coursList" class="col-md-4">
+            <div *ngFor="let c of coursListFilter" class="col-md-4">
               <app-course-card [course]="c" state="default"></app-course-card>
             </div>
           </div>

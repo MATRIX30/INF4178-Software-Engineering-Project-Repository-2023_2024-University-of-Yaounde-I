@@ -59,26 +59,28 @@ export class CoursComponent {
    * @param event Handle on change domain event / filter
    */
   onchangeDomain(event: any) {
-    console.log(event.value);
-    let ID = Number.parseInt(event.vaue);
-
-    this.sujetListFilter = this.sujetList.filter((sujet) => { return sujet.domainID == ID; })
+    let ID = Number.parseInt(event);
+    this.sujetListFilter = this._sujetService.sujetList.filter((sujet) => { return sujet.domaineId == ID; });
   }
 
   /**
    * handle get courses request
    */
   getCours() {
-    this._coursService.getAll().subscribe(response => {
-      if (response.data.errors != undefined) {
-        this._notifierService.notify('error', 'Une erreur est survenue');
-        console.log(response.message);
+    try {
+      this._coursService.getAll().subscribe(response => {
 
-      } else {
-        this._coursService.coursList = JSON.parse(response.data + '');
-        this.coursListFilter = this._coursService.coursList;
-      }
-    });
+        // init general course list
+        this._coursService.coursList = response.data;
+
+        // init cours list filter
+        this.coursListFilter = response.data;
+      });
+    } catch (error) {
+      this._notifierService.notify('error', 'Une erreur est survenue.');
+      console.error(error);
+    }
+
   }
 
   /**
@@ -108,7 +110,7 @@ export class CoursComponent {
         this._sujetService.sujetList = response.data;
 
         // log
-        console.log(response);
+        console.log(this._sujetService.sujetList);
 
       });
 
@@ -126,11 +128,18 @@ export class CoursComponent {
       // start loader
       this._loaderService.isLoading = true;
       this._coursService.getBySujetID(this.sujetID).subscribe(response => {
+
+        // stop loader
+        this._loaderService.isLoading = false;
         // if no error
-        this.coursListFilter = response.data;
+        let courslist: any[] = response.data;
 
         // ahp function
-        this.coursListFilter = this.ahp(this.coursListFilter);
+        this.coursListFilter = this.ahp(courslist);
+
+        console.log("LIste des cours ahp --------------------");
+        console.log(this.coursListFilter);
+
       });
     }
   }
@@ -195,8 +204,10 @@ export class CoursComponent {
   calc_poid(cours: any): number {
     // Poidsalternative = (P x 0,09) + (D x 0,06) + (valueLanguage(L) x 0,67) + (valueNiveau(N) x 0,17)
     let students: number = 0;
-    this._coursService.getSubcribers(cours.id).subscribe(response => {
-      students = response.data;
+    this._coursService.getSubcribers(cours.coursId).subscribe(response => {
+      if (response.data) {
+        students = response.data.studentCount;
+      }
     });
     let weight_sum = 1;
 
@@ -206,6 +217,11 @@ export class CoursComponent {
     return weight_sum;
   }
 
+  /**
+   * Retourner la liste des cours classer par ordre decroissant de poids
+   * @param coursList 
+   * @returns 
+   */
   ahp(coursList: any[]): any[] {
 
     // result
@@ -226,6 +242,8 @@ export class CoursComponent {
 
     // on recupere la liste de sorti
     for (let cp of cours_poid_list) {
+      console.log("poids cours-" + cp.cours.coursId + ": " + cp.poids);
+
       coursListAhp.push(cp.cours);
     }
 

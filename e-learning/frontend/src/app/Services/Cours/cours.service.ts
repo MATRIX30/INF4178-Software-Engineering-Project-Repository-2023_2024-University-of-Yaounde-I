@@ -27,7 +27,7 @@ export class CoursService {
   }
 
   getSubcribers(coursID: any): Observable<any> {
-    let url = this._appService.baseUrl + "/api/cours/getStudents/" + coursID;
+    let url = this._appService.baseUrl + "/api/cours/getStudentCount/" + coursID;
     return this._http.get<any>(url);
   }
 }
