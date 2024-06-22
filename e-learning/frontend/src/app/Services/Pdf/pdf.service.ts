@@ -8,11 +8,5 @@ export class PdfService {
 
   constructor() { }
 
-  makePdf(content: ElementRef) {
-    // @ts-ignore
-    let doc = new jsPDF();
-    doc.addHTML(content.nativeElement, function () {
-      doc.save('test.pdf');
-    });
-  }
+  cours: any;
 }

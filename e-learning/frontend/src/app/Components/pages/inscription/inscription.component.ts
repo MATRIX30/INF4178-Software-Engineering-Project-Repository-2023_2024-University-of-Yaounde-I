@@ -132,13 +132,13 @@ export class InscriptionComponent {
               this._notifierService.notify('success', this.isFormateurChecked ? 'Votre demande a été envoyé. Vous recevrez un email en cas de validation.' : 'Inscription effectuée avec succès');
 
               // clear form
-              this.nom = null;
-              this.prenom = null;
-              this.email = null;
-              this.password = null;
-              this.confirmpassword = null;
-              this.sexe = null;
-              this.domainID = null;
+              // this.nom = null;
+              // this.prenom = null;
+              // this.email = null;
+              // this.password = null;
+              // this.confirmpassword = null;
+              // this.sexe = null;
+              // this.domainID = null;
 
               // display response
               console.log(response);

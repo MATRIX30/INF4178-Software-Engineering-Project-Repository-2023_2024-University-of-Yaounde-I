@@ -42,7 +42,7 @@ export class HomeComponent {
       if (response.data.errors != undefined) {
         this._notifierService.notify('error', 'Une erreur est survenue');
       } else {
-        this._coursService.coursList = JSON.parse(response.data + '');
+        this._coursService.coursList = response.data
       }
     });
   }

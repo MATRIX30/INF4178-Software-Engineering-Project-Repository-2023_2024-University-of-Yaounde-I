@@ -63,7 +63,8 @@ export class ConnexionComponent {
             this._authService.user = response.data;
 
             // save user in session
-            sessionStorage.setItem('user', JSON.stringify(this._authService.user + ''));
+            sessionStorage.setItem('user', JSON.stringify(this._authService.user));
+            this._authService.isUserConnected = true;
 
             // navigate to user page
             this._router.navigateByUrl('/user/home/dashboard');
@@ -75,7 +76,7 @@ export class ConnexionComponent {
       } catch (error) {
         // stop loader
         this._loaderService.setIsLoading(false);
-        
+
         this._notifierService.notify('error', 'Une erreur est survenue');
         console.error(error);
 

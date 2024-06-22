@@ -14,6 +14,7 @@ export class AuthService {
   ) { }
 
   user!: any;
+  isUserConnected = false;
 
   login(email: string, password: string, role: string): Observable<any> {
     let url = this._appService.baseUrl + "/api/student/login";
@@ -33,5 +34,10 @@ export class AuthService {
 
     return this._http.post<any>(url, formdata);
 
+  }
+
+  logout() {
+    sessionStorage.removeItem('user');
+    this.user = null;
   }
 }

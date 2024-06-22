@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/Auth/auth.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    protected _authService: AuthService
   ) { }
 
   isScrolled = false;
@@ -44,6 +46,26 @@ export class NavbarComponent {
     this._router.navigateByUrl('login');
   }
 
-  
+  logout() {
+    this._authService.logout();
+    this._router.navigateByUrl('home');
+  }
+
+
+  initUserMenu() {
+    let userString = sessionStorage.getItem('user');
+
+    if (userString) {
+      this._authService.user = JSON.parse(userString);
+      this._authService.isUserConnected = true;
+    } else {
+      this._authService.isUserConnected = false;
+    }
+
+  }
+
+  ngOnInit() {
+    this.initUserMenu();
+  }
 
 }

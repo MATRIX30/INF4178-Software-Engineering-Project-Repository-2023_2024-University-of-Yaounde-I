@@ -11,6 +11,16 @@ import { HomeUserCoursTermineComponent } from './Components/pages/home-user-cour
 import { EvaluationDispnibleComponent } from './Components/pages/evaluation-dispnible/evaluation-dispnible.component';
 import { EvaluationTermineComponent } from './Components/pages/evaluation-termine/evaluation-termine.component';
 import { EvaluationComponent } from './Components/pages/evaluation/evaluation.component';
+import { CertificatTemplateComponent } from './Components/pages/certificat-template/certificat-template.component';
+import { AboutComponent } from './Components/pages/about/about.component';
+import { SuiviCoursComponent } from './Components/pages/suivi-cours/suivi-cours.component';
+import { HomeTeacherComponent } from './Components/pages/home-teacher/home-teacher.component';
+import { HomeTeacherDashboardComponent } from './Components/pages/home-teacher-dashboard/home-teacher-dashboard.component';
+import { HomeTeacherCourseComponent } from './Components/pages/home-teacher-course/home-teacher-course.component';
+import { HomeAdminComponent } from './Components/pages/home-admin/home-admin.component';
+import { HomeAdminDashboardComponent } from './Components/pages/home-admin-dashboard/home-admin-dashboard.component';
+import { HomeAdminTeacherComponent } from './Components/pages/home-admin-teacher/home-admin-teacher.component';
+import { HomeAdminDomainComponent } from './Components/pages/home-admin-domain/home-admin-domain.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,17 +28,38 @@ const routes: Routes = [
   { path: 'register', component: InscriptionComponent, title: "Inscription" },
   { path: 'login', component: ConnexionComponent, title: "Connexion" },
   { path: 'cours', component: CoursComponent, title: "Cours" },
+  { path: 'about', component: AboutComponent, title: "Cours" },
+  { path: 'cours-detail', component: SuiviCoursComponent, title: "Cours" },
+  { path: 'user/home/evaluation', component: EvaluationComponent },
+  { path: 'certificat', component: CertificatTemplateComponent, title: "Certificat de fin de cours" },
+
+  // User =====================================================================================
   {
-    path: 'user/home', component: HomeUserComponent, children: [
+    path: 'user/home', component: HomeUserComponent, title: 'Tableau de bord', children: [
       { path: 'dashboard', component: HomeUserDashboardComponent },
-      {path: 'unfinished-courses', component: HomeUserCoursNonTermineComponent},
-      {path: 'finished-courses', component: HomeUserCoursTermineComponent},
-      {path: 'available-evaluation', component: EvaluationDispnibleComponent},
-      {path: 'finished-evaluation', component: EvaluationTermineComponent},
+      { path: 'unfinished-courses', component: HomeUserCoursNonTermineComponent },
+      { path: 'finished-courses', component: HomeUserCoursTermineComponent },
+      { path: 'available-evaluation', component: EvaluationDispnibleComponent },
+      { path: 'finished-evaluation', component: EvaluationTermineComponent },
     ]
   },
-  {path: 'user/home/evaluation', component: EvaluationComponent},
-  
+
+  // Teacher =====================================================================================
+  {
+    path: 'teacher/home', component: HomeTeacherComponent, title: 'Tableau de bord', children: [
+      { path: 'dashboard', component: HomeTeacherDashboardComponent },
+      { path: 'courses', component: HomeTeacherCourseComponent },
+    ]
+  },
+  // Admin =====================================================================================
+  {
+    path: 'admin/home', component: HomeAdminComponent, title: 'Tableau de bord', children: [
+      { path: 'dashboard', component: HomeAdminDashboardComponent },
+      { path: 'teacher', component: HomeAdminTeacherComponent },
+      { path: 'domain', component: HomeAdminDomainComponent },
+    ]
+  },
+
 
 
 ];

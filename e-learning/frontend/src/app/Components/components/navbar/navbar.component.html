@@ -62,30 +62,12 @@
         </li>
         <li>
           <a
-            routerLink="/a-propos"
+            routerLink="/about"
             routerLinkActive="active-link"
             class="nav-link text-secondary"
             href="#"
             >A propos</a
           >
-        </li>
-
-        <!-- anonyme ================================ -->
-        <li class="d-none ms-3 mt-sm-3 mt-md-0 mt-lg-0 mt-xl-0">
-          <button
-            (click)="go_to_login_page()"
-            mat-raised-button
-            class="me-2 shadow rounded-pill primary-light-button"
-          >
-            Connexion
-          </button>
-          <button
-            (click)="go_to_register_page()"
-            mat-raised-button
-            class="shadow rounded-pill secondary-light-button"
-          >
-            Inscription
-          </button>
         </li>
 
         <!-- user ===================================== -->
@@ -99,17 +81,31 @@
               <!-- text -->
               <div class="d-flex flex-column me-2">
                 <!-- name -->
-                <span class="">Compte</span>
+                <span class=""
+                  >{{
+                    _authService.isUserConnected
+                      ? _authService.user.nom
+                      : "Compte"
+                  }}
+                </span>
                 <!-- role -->
-                <span class="small text-secondary">Visiteur</span>
+                <span class="small text-secondary">{{
+                  _authService.isUserConnected
+                    ? _authService.user.role
+                    : "Visiteur"
+                }}</span>
               </div>
 
               <!-- icon -->
               <mat-icon>keyboard_arrow_down</mat-icon>
             </div>
           </button>
+
+          <!-- visiteur -->
           <mat-menu #menu="matMenu" xPosition="before">
+            <!-- visitor -->
             <button
+              *ngIf="!_authService.isUserConnected"
               (click)="go_to_login_page()"
               mat-menu-item
               class="bg-light-blue"
@@ -117,11 +113,37 @@
               Se connecter
             </button>
             <button
+              *ngIf="!_authService.isUserConnected"
               (click)="go_to_register_page()"
               mat-menu-item
               class="bg-light-blue"
             >
               S'inscrire
+            </button>
+
+            <!-- user -->
+            <button
+              *ngIf="_authService.isUserConnected"
+              mat-menu-item
+              class="bg-light-blue"
+            >
+              Mon profil
+            </button>
+            <button
+              routerLink="/user/home/dashboard"
+              *ngIf="_authService.isUserConnected"
+              mat-menu-item
+              class="bg-light-blue"
+            >
+              Tableau de bord
+            </button>
+            <button
+              (click)="logout()"
+              *ngIf="_authService.isUserConnected"
+              mat-menu-item
+              class="bg-light-blue"
+            >
+              Deconnexion
             </button>
           </mat-menu>
         </li>

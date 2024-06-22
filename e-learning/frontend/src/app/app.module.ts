@@ -57,6 +57,16 @@ import { EvaluationDispnibleComponent } from './Components/pages/evaluation-disp
 import { EvaluationTermineComponent } from './Components/pages/evaluation-termine/evaluation-termine.component';
 import { EvaluationCardComponent } from './Components/components/evaluation-card/evaluation-card.component';
 import { EvaluationComponent } from './Components/pages/evaluation/evaluation.component';
+import { CertificatTemplateComponent } from './Components/pages/certificat-template/certificat-template.component';
+import { AboutComponent } from './Components/pages/about/about.component';
+import { SuiviCoursComponent } from './Components/pages/suivi-cours/suivi-cours.component';
+import { HomeTeacherComponent } from './Components/pages/home-teacher/home-teacher.component';
+import { HomeTeacherCourseComponent } from './Components/pages/home-teacher-course/home-teacher-course.component';
+import { HomeTeacherDashboardComponent } from './Components/pages/home-teacher-dashboard/home-teacher-dashboard.component';
+import { HomeAdminComponent } from './Components/pages/home-admin/home-admin.component';
+import { HomeAdminDashboardComponent } from './Components/pages/home-admin-dashboard/home-admin-dashboard.component';
+import { HomeAdminTeacherComponent } from './Components/pages/home-admin-teacher/home-admin-teacher.component';
+import { HomeAdminDomainComponent } from './Components/pages/home-admin-domain/home-admin-domain.component';
 
 
 
@@ -65,6 +75,8 @@ import { EvaluationComponent } from './Components/pages/evaluation/evaluation.co
     AppComponent,
     HomeComponent,
     AddItineraireComponent,
+    AboutComponent,
+    SuiviCoursComponent,
     DeleteComponent,
     FullLoaderComponent,
     NavbarComponent,
@@ -83,7 +95,15 @@ import { EvaluationComponent } from './Components/pages/evaluation/evaluation.co
     EvaluationDispnibleComponent,
     EvaluationTermineComponent,
     EvaluationCardComponent,
-    EvaluationComponent
+    EvaluationComponent,
+    CertificatTemplateComponent,
+    HomeTeacherComponent,
+    HomeTeacherCourseComponent,
+    HomeTeacherDashboardComponent,
+    HomeAdminComponent,
+    HomeAdminDashboardComponent,
+    HomeAdminTeacherComponent,
+    HomeAdminDomainComponent
   ],
   imports: [
     MatDividerModule,
@@ -92,6 +112,7 @@ import { EvaluationComponent } from './Components/pages/evaluation/evaluation.co
     BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule,
+    MatCardModule,
     MatNativeDateModule,
     NgxScrollTopModule,
     MatDatepickerModule,
