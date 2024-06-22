@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'register', component: InscriptionComponent, title: "Inscription" },
   { path: 'login', component: ConnexionComponent, title: "Connexion" },
   { path: 'cours', component: CoursComponent, title: "Cours" },
-  { path: 'about', component: AboutComponent, title: "Cours" },
+  { path: 'about', component: AboutComponent, title: "A propos" },
   { path: 'cours-detail', component: SuiviCoursComponent, title: "Cours" },
   { path: 'user/home/evaluation', component: EvaluationComponent },
   { path: 'certificat', component: CertificatTemplateComponent, title: "Certificat de fin de cours" },

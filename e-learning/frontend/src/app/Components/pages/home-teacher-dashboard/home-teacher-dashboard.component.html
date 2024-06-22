@@ -1,1 +1,91 @@
-<p>home-teacher-dashboard works!</p>
+<!-- title -->
+<div
+  class="fs-3 text-dark mb-3 sticky-top t-86 d-flex align-items-center bg-white pb-2 pt-3"
+  style="z-index: 996 !important"
+>
+  <button
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample"
+    aria-controls="offcanvasExample"
+    mat-icon-button
+    class="me-2 d-lg-none"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span> Tableau de bord </span>
+</div>
+
+<!-- card - section -->
+<div class="row mb-3">
+  <!-- divider -->
+  <div class="d-flex flex-column mb-3">
+    <span class="small text-secondary">statistiques</span>
+    <mat-divider></mat-divider>
+  </div>
+
+  <!-- Total cours -->
+  <div class="col-md-3 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-bookmark'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Cours'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+
+  <!-- Total chapitres -->
+  <div class="col-md-3 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-check'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Chapitres'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+
+  <!-- Total evaluation -->
+  <div class="col-md-3 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-journal-arrow-up'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Évaluations'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+
+  <!-- Total etudiant -->
+  <div class="col-md-3 mb-3">
+    <app-basic-card
+      [card_icon_class]="'bi-people'"
+      [card_icon_color]="'secondary'"
+      [card_title]="'Étudiants inscrits'"
+      [card_value]="'05'"
+    ></app-basic-card>
+  </div>
+</div>
+
+<!-- Recemment consulter -->
+<div>
+  <!-- text -->
+  <div class="mb-3 text-secondary">
+    <span>Activités recentes</span>
+  </div>
+
+  <!-- content -->
+  <table mat-table [dataSource]="dataSource" class="">
+    <!-- Description Column -->
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

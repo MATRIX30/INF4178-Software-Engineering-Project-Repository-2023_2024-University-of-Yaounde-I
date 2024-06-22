@@ -66,8 +66,23 @@ export class ConnexionComponent {
             sessionStorage.setItem('user', JSON.stringify(this._authService.user));
             this._authService.isUserConnected = true;
 
-            // navigate to user page
-            this._router.navigateByUrl('/user/home/dashboard');
+
+
+            // navigate to appropriate page
+            switch (this._authService.user.role) {
+              case "Etudiant":
+                this._router.navigateByUrl('/user/home/dashboard');
+                break;
+
+              case "Formateur":
+                this._router.navigateByUrl('/teacher/home/dashboard');
+                break;
+
+              default:
+                console.error("UNKNOW ROLE");
+                break;
+            }
+
           } else {
             this._notifierService.notify('error', 'Email ou mot de passe incorrect');
           }
