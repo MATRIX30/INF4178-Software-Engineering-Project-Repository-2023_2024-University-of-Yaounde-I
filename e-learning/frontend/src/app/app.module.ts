@@ -35,6 +35,7 @@ import { MyErrorStateMatcher } from './Components/Utils/MyErroStateMatcher';
 import { FullLoaderComponent } from './Components/components/full-loader/full-loader.component';
 import { DatePipe } from '@angular/common';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
@@ -114,6 +115,7 @@ import { HomeTeacherCourserDetailComponent } from './Components/pages/home-teach
     BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule,
+    MatAutocompleteModule,
     MatCardModule,
     MatNativeDateModule,
     NgxScrollTopModule,

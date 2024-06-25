@@ -49,17 +49,15 @@ export class HomeComponent {
 
   getDomains() {
     this._domainService.getAll().subscribe(response => {
-      if (response.data.errors != undefined) {
-        this._notifierService.notify('error', 'Une erreur est survenue');
-        console.log(response);
-
-      } else {
-        this._domainService.domaineList = JSON.parse(response.data + '');
-      }
-
+      // populate list
+      this._domainService.domaineList = response.data;
       // log response
       console.log(response);
     });
+  }
+
+  go_to_login_page() {
+    this._router.navigateByUrl('login');
   }
 
   ngOnInit() {

@@ -30,4 +30,23 @@ export class CoursService {
     let url = this._appService.baseUrl + "/api/cours/getStudentCount/" + coursID;
     return this._http.get<any>(url);
   }
+
+  getByID(id: number): Observable<any> {
+    let url = this._appService.baseUrl + "/api/cours/get/" + id;
+    return this._http.get<any>(url);
+  }
+
+  getChapitres(idCours: number): Observable<any> {
+    let url = this._appService.baseUrl + "/api/chapitre/cours/get/" + idCours;
+    return this._http.get<any>(url);
+  }
+
+  suscribe(student: number, coursId: number): Observable<any> {
+    let data = {
+      studentId: student,
+      coursId: coursId
+    }
+    let url = this._appService.baseUrl + "/api/cours/addStudentToCours/";
+    return this._http.post<any>(url, data);
+  }
 }

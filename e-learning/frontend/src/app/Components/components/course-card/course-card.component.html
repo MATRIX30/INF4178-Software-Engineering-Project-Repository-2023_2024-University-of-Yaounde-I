@@ -115,7 +115,9 @@
   <!-- course characteristics -->
   <div class="d-flex align-items-center justify-content-between w-100 mb-3">
     <!-- author -->
-    <span class="text-dark text-decoration-underline">Emmanuel</span>
+    <span class="text-dark text-decoration-underline">{{
+      course.formateurs.nom
+    }}</span>
 
     <!-- icon -->
     <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
@@ -123,7 +125,7 @@
 
   <!-- course title -->
   <div class="mb-2 d-flex flex-column">
-    <span class="fs-5 fw-semibold mb-2">UI/UX Design</span>
+    <span class="fs-5 fw-semibold mb-2">{{ course.nom }}</span>
     <span class="rounded-1 text-primary small"> Intermediare</span>
   </div>
 
@@ -135,7 +137,7 @@
   <!-- domain & chapters -->
   <div class="d-flex mb-3">
     <span class="rounded-1 bg-domain-title small text-white p-2 me-3">
-      INFORMATIQUE</span
+      {{ course.sujets.domaines.nom || "Default" }}</span
     >
 
     <span class="rounded-1 bg-secondary small text-white p-2 me-2">
@@ -144,5 +146,11 @@
   </div>
 
   <!-- button section -->
-  <button class="w-100 bg-light" mat-stroked-button>Consulter</button>
+  <button
+    (click)="go_to_detail_page()"
+    class="w-100 bg-light"
+    mat-stroked-button
+  >
+    Consulter
+  </button>
 </div>

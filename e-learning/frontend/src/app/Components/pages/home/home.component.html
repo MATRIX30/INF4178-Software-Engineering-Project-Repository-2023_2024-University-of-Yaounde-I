@@ -24,6 +24,7 @@
         <!-- button -->
         <div class="mt-3">
           <button
+            (click)="go_to_login_page()"
             mat-stroked-button
             class="rounded-pill mw-400 w-100 border-primary fs-5 p-3"
             color="primary"
@@ -211,16 +212,24 @@
       <!-- content -->
       <div class="row">
         <div class="col-md-6 col-lg-3">
-          <app-domain-card [domain]="null"></app-domain-card>
+          <app-domain-card
+            [domain]="_domainService.domaineList[0]"
+          ></app-domain-card>
         </div>
         <div class="col-md-6 col-lg-3">
-          <app-domain-card [domain]="null"></app-domain-card>
+          <app-domain-card
+            [domain]="_domainService.domaineList[1]"
+          ></app-domain-card>
         </div>
         <div class="col-md-6 col-lg-3">
-          <app-domain-card [domain]="null"></app-domain-card>
+          <app-domain-card
+            [domain]="_domainService.domaineList[2]"
+          ></app-domain-card>
         </div>
         <div class="col-md-6 col-lg-3">
-          <app-domain-card [domain]="null"></app-domain-card>
+          <app-domain-card
+            [domain]="_domainService.domaineList[3]"
+          ></app-domain-card>
         </div>
       </div>
     </div>
@@ -229,8 +238,7 @@
     <mat-divider class="mb-5"></mat-divider>
 
     <!-- course section -->
-    <div class="container mb-5">
-      <!-- header -->
+    <!-- <div class="container mb-5">
       <div class="d-flex align-items-center justify-content-between mb-3">
         <div class="d-flex flex-column">
           <span class="fs-4 fw-semibold text-dark mb-1"
@@ -246,7 +254,6 @@
         </button>
       </div>
 
-      <!-- content -->
       <div class="row">
         <div class="col-md-4">
           <app-course-card
@@ -273,7 +280,7 @@
           ></app-course-card>
         </div>
       </div>
-    </div>
+    </div> -->
   </main>
   <!-- End content -->
 
