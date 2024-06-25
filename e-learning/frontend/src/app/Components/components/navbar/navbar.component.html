@@ -1,0 +1,165 @@
+<!-- ======= Header ======= -->
+<header
+  id="header"
+  class="d-flex align-items-center sticky-top"
+  [ngClass]="{ shadow: isScrolled }"
+>
+  <div
+    class="ms-5 me-5 d-flex align-items-center justify-content-between w-100"
+  >
+    <div class="d-flex align-items-center">
+      <!-- Logo -->
+      <a href="#" class="logo me-2 d-none">
+        <img src="../../../../assets/images/adaptive-icon.png" alt="" />
+      </a>
+
+      <!-- Title -->
+      <a routerLink="/" class="text-decoration-none"
+        ><span class="fw-bold fs-4 text-secondary-dark me-3">INSTITUTE</span></a
+      >
+    </div>
+
+    <div id="navbar" class="navbar shadow-none">
+      <ul class=" ">
+        <li class="p-0">
+          <!-- search bar -->
+          <div class="container-fluid">
+            <div class="" style="height: 56px !important">
+              <mat-form-field class="w-100" appearance="outline">
+                <input class="ps-2" matInput ngModel placeholder="Rechercher" />
+                <button matSuffix mat-icon-button class="btn btn-sm">
+                  <mat-icon matPrefix class="text-secondary">search</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a
+            routerLink="/home"
+            routerLinkActive="active-link"
+            class="nav-link text-secondary"
+            >Accueil</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/cours"
+            routerLinkActive="active-link"
+            class="nav-link text-secondary"
+            href="#"
+            >Cours</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/domaines"
+            routerLinkActive="active-link"
+            class="nav-link text-secondary"
+            href="#"
+            >Domaines</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/about"
+            routerLinkActive="active-link"
+            class="nav-link text-secondary"
+            href="#"
+            >A propos</a
+          >
+        </li>
+
+        <!-- user ===================================== -->
+        <li>
+          <button
+            mat-button
+            [matMenuTriggerFor]="menu"
+            style="height: 56px !important"
+          >
+            <div class="d-flex flex-row align-items-center p-2">
+              <!-- text -->
+              <div class="d-flex flex-column me-2">
+                <!-- name -->
+                <span class=""
+                  >{{
+                    _authService.isUserConnected
+                      ? _authService.user.nom
+                      : "Compte"
+                  }}
+                </span>
+                <!-- role -->
+                <span class="small text-secondary">{{
+                  _authService.isUserConnected
+                    ? _authService.user.role
+                    : "Visiteur"
+                }}</span>
+              </div>
+
+              <!-- icon -->
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            </div>
+          </button>
+
+          <!-- visiteur -->
+          <mat-menu #menu="matMenu" xPosition="before">
+            <!-- visitor -->
+            <button
+              *ngIf="!_authService.isUserConnected"
+              (click)="go_to_login_page()"
+              mat-menu-item
+              class="bg-light-blue"
+            >
+              Se connecter
+            </button>
+            <button
+              *ngIf="!_authService.isUserConnected"
+              (click)="go_to_register_page()"
+              mat-menu-item
+              class="bg-light-blue"
+            >
+              S'inscrire
+            </button>
+
+            <!-- user -->
+            <button
+              *ngIf="_authService.isUserConnected"
+              mat-menu-item
+              class="bg-light-blue"
+            >
+              Mon profil
+            </button>
+            <button
+              routerLink="/user/home/dashboard"
+              *ngIf="_authService.isUserConnected"
+              mat-menu-item
+              class="bg-light-blue"
+            >
+              Tableau de bord
+            </button>
+            <button
+              (click)="logout()"
+              *ngIf="_authService.isUserConnected"
+              mat-menu-item
+              class="bg-light-blue"
+            >
+              Deconnexion
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+      <i class="bi mobile-nav-toggle bi-x d-none" (click)="toggle_menu()"></i>
+    </div>
+    <button
+      class="mobile-nav-toggle"
+      type="button"
+      mat-icon-button
+      (click)="toggle_menu()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- .navbar -->
+  </div>
+</header>
+<!-- End Header -->

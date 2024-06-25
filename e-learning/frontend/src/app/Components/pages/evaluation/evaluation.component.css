@@ -1,0 +1,11 @@
+.course-evaluation-title-card {
+    height: 300px;
+    background-image: url(../../../../assets/images/evaluation-title-bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.evaluation-header-bar{
+    background-color: var(--secondary-light-color);
+    height: 10px;
+}
