@@ -147,7 +147,7 @@
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let element">
         <button class="btn btn-sm btn-outline-warning me-2">Voir</button>
-        <button class="btn btn-sm btn-outline-success me-2">Consulter</button>
+        <button (click)="go_to_chapitres()" class="btn btn-sm btn-outline-success me-2">Consulter</button>
         <button class="btn btn-sm btn-outline-danger">Supprimer</button>
       </td>
       <!-- <td mat-cell *matCellDef="let element"></td> -->

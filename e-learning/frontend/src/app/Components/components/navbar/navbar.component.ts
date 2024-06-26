@@ -77,6 +77,24 @@ export class NavbarComponent {
     this._router.navigateByUrl('home');
   }
 
+  go_to_homepage() {
+    let route = "";
+    switch (this._authService.user.role) {
+      case "Etudiant":
+        route = "/user/home/dashboard";
+        break;
+
+      case "Formateur":
+        route = "/teacher/home/dashboard";
+        break;
+
+      default:
+        break;
+    }
+
+    this._router.navigateByUrl(route);
+  }
+
 
   initUserMenu() {
     let userString = sessionStorage.getItem('user');

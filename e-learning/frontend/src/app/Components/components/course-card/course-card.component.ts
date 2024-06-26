@@ -29,7 +29,11 @@ export class CourseCardComponent {
 
   go_to_detail_page() {
     this._suivicoursService.selectedcourse = this.course;
-    localStorage.setItem('selectedCourse', this.course + '');
+    localStorage.setItem('selectedCourse', JSON.stringify(this.course));
     this._router.navigateByUrl('cours-detail');
+  }
+
+  go_to_attestation_page() {
+    this._pdfService.cours = this.course;
   }
 }

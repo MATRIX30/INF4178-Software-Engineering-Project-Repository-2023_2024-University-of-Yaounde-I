@@ -70,6 +70,9 @@ import { HomeAdminTeacherComponent } from './Components/pages/home-admin-teacher
 import { HomeAdminDomainComponent } from './Components/pages/home-admin-domain/home-admin-domain.component';
 import { HomeTeacherCourserDetailComponent } from './Components/pages/home-teacher-courser-detail/home-teacher-courser-detail.component';
 import { HomeAdminDomainVoirComponent } from './Components/pages/home-admin-domain-voir/home-admin-domain-voir.component';
+import { HomeTeacherEvaluationComponent } from './Components/pages/home-teacher-evaluation/home-teacher-evaluation.component';
+import { EvaluationDialogComponent } from './Components/dialogs/evaluation-dialog/evaluation-dialog.component';
+import { FormateurCoursDialogComponent } from './Components/dialogs/formateur-cours-dialog/formateur-cours-dialog.component';
 
 
 
@@ -107,8 +110,7 @@ import { HomeAdminDomainVoirComponent } from './Components/pages/home-admin-doma
     HomeAdminDashboardComponent,
     HomeAdminTeacherComponent,
     HomeAdminDomainComponent,
-    HomeTeacherCourserDetailComponent,
-    HomeAdminDomainVoirComponent
+    HomeTeacherCourserDetailComponent
   ],
   imports: [
     MatDividerModule,

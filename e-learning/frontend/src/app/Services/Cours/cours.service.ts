@@ -37,7 +37,7 @@ export class CoursService {
   }
 
   getChapitres(idCours: number): Observable<any> {
-    let url = this._appService.baseUrl + "/api/chapitre/cours/get/" + idCours;
+    let url = this._appService.baseUrl + "/api/chapitre/getbyidcours/" + idCours;
     return this._http.get<any>(url);
   }
 
@@ -48,5 +48,10 @@ export class CoursService {
     }
     let url = this._appService.baseUrl + "/api/cours/addStudentToCours/";
     return this._http.post<any>(url, data);
+  }
+
+  getStudentCours(studentId: number): Observable<any> {
+    let url = this._appService.baseUrl + "/api/cours/student/" + studentId + "/cours";
+    return this._http.get<any>(url);
   }
 }

@@ -27,7 +27,12 @@
             <div class="" style="height: 56px !important">
               <mat-form-field class="w-100" appearance="outline">
                 <!-- <input class="ps-2" matInput ngModel placeholder="Rechercher" /> -->
-                <button (click)="search()" matSuffix mat-icon-button class="btn btn-sm">
+                <button
+                  (click)="search()"
+                  matSuffix
+                  mat-icon-button
+                  class="btn btn-sm"
+                >
                   <mat-icon matPrefix class="text-secondary">search</mat-icon>
                 </button>
 
@@ -153,7 +158,7 @@
               Mon profil
             </button>
             <button
-              routerLink="/user/home/dashboard"
+              (click)="go_to_homepage()"
               *ngIf="_authService.isUserConnected"
               mat-menu-item
               class="bg-light-blue"

@@ -9,7 +9,7 @@
 
     <div class="col-sm-12 align-content-center mb-2">
       <img
-        class="img-fluid rounded-2 mb-3 h-80 w-80"
+        class="img-fluid rounded-2 mb-3 h-50 w-80"
         src="../../../../assets/images/template.jpg"
         alt=""
       />
@@ -25,8 +25,10 @@
       </div>
 
       <div class="d-flex mb-4">
-        <span class="rounded-2 bg-domain-title small text-white p-2 me-3">
-          {{ coursJson.nom }}</span
+        <span
+          class="rounded-2 bg-domain-title small text-white p-2 me-3 text-uppercase"
+        >
+          {{ coursJson.sujets.domaines.nom }}</span
         >
 
         <span class="rounded-2 bg-secondary small text-white p-2 me-2">
@@ -85,7 +87,7 @@
                 <u
                   class="text-decoration-underline"
                   style="color: rgb(14, 14, 184)"
-                  >{{ coursJson.updateAt }}</u
+                  >{{ datetime.date }}</u
                 ></span
               >
             </div>
@@ -96,7 +98,7 @@
                 <u
                   class="text-decoration-underline"
                   style="color: rgb(14, 14, 184)"
-                  >{{ coursJson.tempsApprentissage }}</u
+                  >{{ coursJson.tempsApprentissage || "jj/mm/aaa" }} Heures</u
                 ></span
               >
             </div>
@@ -135,7 +137,7 @@
         <!-- texte section ============================= -->
         <div class="d-flex flex-column">
           <!-- titre du cours -->
-          <span class="fs-5 text-secondary fw-semibold mb-1">{{
+          <span class="fs-4 text-dark text-capitalize fw-semibold mb-1">{{
             c.titre
           }}</span>
 
@@ -150,32 +152,48 @@
           <span class="text-secondary">{{ c.duree }} minutes</span>
         </div>
       </div>
-
-      <div
-        class="rounded-3 d-flex flex-row justify-content-between align-items-center p-4 border-1 border-dark-subtile border-top border-bottom border-start border-end mb-3"
-      >
-        <!-- texte section ============================= -->
-        <div class="d-flex flex-column">
-          <!-- titre du cours -->
-          <span class="fs-4 text-dark fw-semibold mb-1">UI/UX Designer</span>
-
-          <!-- no chaitre -->
-          <span class="">Chapitre 01</span>
-        </div>
-
-        <!-- duree section ============================= -->
-        <div
-          class="rounded-2 border-1 bg-light text-secondary small border-top border-bottom border-start border-end d-flex justify-content-center align-items-center p-2"
-        >
-          <span class="text-secondary">20 minutes</span>
-        </div>
-      </div>
     </div>
 
     <!-- ==== bouton s'inscrire ==== -->
-    <div class="mb-3">
-      <button (click)="registerToCourse()"  mat-raised-button class="me-3 shadow primary-light-button w-40">
-        S'inscrire
+    <div *ngIf="!hasSubscribe" class="mb-3">
+      <button
+        (click)="registerToCourse()"
+        mat-raised-button
+        [disabled]="_loaderService.isLoading"
+        class="{{ _loaderService.isLoading ? '' : 'primary-light-button' }}"
+      >
+        <div class="d-flex align-items-center">
+          <!-- loader -->
+          <div
+            *ngIf="_loaderService.isLoading"
+            class="spinner-border spinner-border-sm me-2"
+          ></div>
+          {{
+            _loaderService.isLoading ? "Traitement en cours ..." : "Souscrire"
+          }}
+        </div>
+      </button>
+    </div>
+
+    <!-- ==== bouton quitter le cours ==== -->
+    <div *ngIf="hasSubscribe" class="mb-3">
+      <button
+        mat-raised-button
+        [disabled]="_loaderService.isLoading"
+        class="{{ _loaderService.isLoading ? '' : 'bg-danger text-white' }}"
+      >
+        <div class="d-flex align-items-center">
+          <!-- loader -->
+          <div
+            *ngIf="_loaderService.isLoading"
+            class="spinner-border spinner-border-sm me-2"
+          ></div>
+          {{
+            _loaderService.isLoading
+              ? "Traitement en cours ..."
+              : "Quitter le cours"
+          }}
+        </div>
       </button>
     </div>
   </div>

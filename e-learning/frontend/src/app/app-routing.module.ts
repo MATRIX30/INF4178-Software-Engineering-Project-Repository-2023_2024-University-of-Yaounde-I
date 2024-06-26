@@ -23,6 +23,8 @@ import { HomeAdminTeacherComponent } from './Components/pages/home-admin-teacher
 import { HomeAdminDomainComponent } from './Components/pages/home-admin-domain/home-admin-domain.component';
 import { HomeAdminDomainVoirComponent } from './Components/pages/home-admin-domain-voir/home-admin-domain-voir.component';
 
+import { HomeTeacherCourserDetailComponent } from './Components/pages/home-teacher-courser-detail/home-teacher-courser-detail.component';
+import { HomeTeacherEvaluationComponent } from './Components/pages/home-teacher-evaluation/home-teacher-evaluation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -61,6 +63,8 @@ const routes: Routes = [
     path: 'teacher/home', component: HomeTeacherComponent, title: 'Tableau de bord', children: [
       { path: 'dashboard', component: HomeTeacherDashboardComponent },
       { path: 'courses', component: HomeTeacherCourseComponent },
+      { path: 'courses/details', component: HomeTeacherCourserDetailComponent },
+      { path: 'courses/details/evaluation', component: HomeTeacherEvaluationComponent },
     ]
   },
   // Admin =====================================================================================
