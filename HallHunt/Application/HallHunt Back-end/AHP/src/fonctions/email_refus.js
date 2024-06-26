@@ -19,7 +19,7 @@ module.exports.send = async function(pseudo_client,mail) {
 const mailOptions = {
   from: '  "HallHunt"   <franckemerites45@gmail.com>',
   to:` ${pseudo_client}  < ${mail}>  `,
-  subject: "Demande de  reservation ",
+  subject: "Refus de  reservation ",
   html : `<!DOCTYPE html>
   <html>
   <head>
@@ -31,10 +31,8 @@ const mailOptions = {
   </style>
   </head>
   <body>
-  
-  <h1> Refus de reservation</h1>
-  
-  <div
+    
+  <div>
   Cher(e) ${pseudo_client},
   NOus sommes dans le regret de vous annoncer que la salle de reunion ne sera pas disponible 
   Nous vous remercions de votre confiance et nous espérons que votre réservation répondra à toutes vos attentes.

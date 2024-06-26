@@ -32,9 +32,8 @@ const mailOptions = {
   </head>
   <body>
   
-  <h1> Confirmation de reservation</h1>
-  
-  <div
+ 
+  <div>
   Cher(e) ${pseudo_client},
   
   Nous sommes ravis de vous informer que votre réservation sur notre plateforme a été approuvée avec succès. Votre demande a été traitée et confirmée, et nous sommes impatients de vous accueillir lors de votre séjour.

@@ -32,9 +32,8 @@ const mailOptions = {
   </head>
   <body>
   
-  <h1> Annonces de reservations</h1>
   
-  <div
+  <div>
   Cher(e) ${pseudo_proprietaire},
   NOus vous annonçons  qu'une de vos  salle  a été demander 
   Nous vous remercions de votre confiance et nous espérons que votre réservation répondra à toutes vos attentes.
