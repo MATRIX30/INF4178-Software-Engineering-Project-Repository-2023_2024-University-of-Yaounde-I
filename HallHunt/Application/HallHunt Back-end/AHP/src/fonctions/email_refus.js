@@ -32,7 +32,7 @@ const mailOptions = {
   </head>
   <body>
   
-  <h1> Confirmation de reservation</h1>
+  <h1> Refus de reservation</h1>
   
   <div
   Cher(e) ${pseudo_client},

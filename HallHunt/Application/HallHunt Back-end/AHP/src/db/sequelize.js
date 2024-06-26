@@ -79,18 +79,6 @@ Salle.belongsTo(User,{
 
 
 
-User.hasMany(Reservation,{
-  foreignKey: "id_client",
-  as: 'reservation_utilisateur',
-  onDelete: 'CASCADE'
-})
-
-Reservation.belongsTo(User,{
-  foreignKey: 'id_client',
-  as: "reservation_utilisateur",
- 
-})
-
 
 
 User.hasMany(Demande_reservation,{

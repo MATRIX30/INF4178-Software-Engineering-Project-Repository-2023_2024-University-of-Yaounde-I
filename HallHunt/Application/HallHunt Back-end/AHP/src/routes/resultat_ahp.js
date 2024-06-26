@@ -1,6 +1,7 @@
 const cors = require("cors");
 const resultat = require("../fonctions/pair_wise-matrix");
-
+const {ValidationError}= require('sequelize')
+const {UniqueConstraintError}=require('sequelize')
 
 const {Salle}= require('../db/sequelize')
 var salles= require("../models/Salle")
@@ -12,13 +13,26 @@ module.exports = (server) => {
 
      let  salle = await resultat.pair_wise_matrix(req.body.preference_prix_capacite,req.body.preference_prix_standing,req.body.preference_prix_acces,req.body.preference_capacite_standing,req.body.preference_capacite_acces,req.body.preference_standing_acces); // Utilisez directement await pour attendre que la promesse se résolve
       // Vérifiez que les données sont correctes dans la console
-      salles= await Salle.findOne({  where: {
-        nom: salle.nom}})
+         
+console.log("tableau salle 0 "+salle[0])
+     var resultats=[];
+     
+for (i = 0; i < salle.length; i += 1) {
+
+  salles= await Salle.findOne({  where: {
+    nom: salle[i]}})
+     
+    resultats.push(salles)
+
+}
+     
+     
+    
        
 
-        console.log(salles)
+       // console.log(salles)
     
-      res.json(salles); // Renvoyer les données au format JSON
+      res.json(resultats); // Renvoyer les données au format JSON
     } catch (error) {
       if (error instanceof ValidationError) {
         console.error("Erreur de validation : ", error);

@@ -75,7 +75,7 @@ module.exports= (server) => {
         const message ='le Salles a bien ete ajouter.'
       
     
-       images.image(req.files,salles.id_salle)
+         images.image(req.files,salles.id_salle)
 
         res.json({message,data: salles})
 

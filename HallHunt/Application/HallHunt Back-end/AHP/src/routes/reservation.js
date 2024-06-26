@@ -14,9 +14,8 @@ var client = require('../models/Users')
 
 var proprietaire = require('../models/Users')
 
-
+var fin =require ("../fonctions/miniteur_reservation_fin")
 var   demande_reservation = require('../models/Demande_reservation')
-const { response } = require('express')
 
 
 module.exports= (server) => {
@@ -32,17 +31,41 @@ module.exports= (server) => {
    
 if(req.body.reponse=="oui")
 {
-    Reservation.create(Reservation)
+    Reservation.create(reservation)
+ 
+  let  date_fin= demande_reservation.date_debut.setMinutes(demande_reservation.date_debut.getMinutes()+ demande_reservation.duree);
+    console.log(date_fin)
+    fin.miniteur_fin(salle,date_fin)
    
 
 
-    mail_confirmation.send(client.pseudo,salle.nom,demande_reservation.date_debut,demande_reservation.duree,client.email,proprietaire.pseudo)
+   // mail_confirmation.send(client.pseudo,salle.nom,demande_reservation.date_debut,demande_reservation.duree,client.email,proprietaire.pseudo)
     salle.etat= 1;
 
      Salle.update({etat:1},{ where: {id_salle:salle.id_salle}})
    message="la salle a bien etet reserver "
+
+   Demande_reservation.findOne({ where: {
+    id_demande_reservation: req.params.id_demande_reservation}}
+ )
+.then(demande_reservations => {
+    if(demande_reservations===null){
+        const message="le Salles n'existe pas, essayer un autre identifiant "
+        return res.status(404).json({message}) 
+    }
+
+   mail_refus.send(client.pseudo,client.email)
+
+   //
+    const demande_resevationsdelete=demande_reservations;
+    demande_reservations.destroy({
+        where :  id_demande_reservation=demande_reservations.id_demande_reservation
+    }).then()
+
         
-} 
+})
+
+}
 else{
 
     message="la reservation a ete refuser "

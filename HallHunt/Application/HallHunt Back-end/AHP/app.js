@@ -96,9 +96,13 @@ require('./src/routes/creation_salle')(app);                     //http://localh
 require('./src/routes/resultat_ahp')(app);                      //http://localhost:3000/api/creation/salle/id  
 
 
+require("./src/routes/liste_image_complet")(app);                        //http://localhost:3001/api/liste/imagecomplet 
 
-require('./src/routes/liste_image_complet')(app);                      //http://localhost:3001/api/liste/imagecomplet 
-require('./src/routes/lister_image_id_salle')(app);                      //http://localhost:3001/api/image/:id
+require("./src/routes/lister_image_id_salle")(app);                        //http://localhost:3001/api/image/:id
+
+
+
+
 require("./src/routes/reservation")(app)                  //http://localhost:3001/api/creation/reservation/:id_demande_reservation
 
 require("./src/routes/listesalle_id")(app);      //http://localhost:3000/api/salle/:id

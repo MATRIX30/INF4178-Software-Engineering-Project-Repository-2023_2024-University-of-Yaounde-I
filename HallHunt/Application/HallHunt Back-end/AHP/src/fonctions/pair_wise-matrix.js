@@ -4,6 +4,7 @@ const linearAlgebra = require('linear-algebra')();
 const Matrix = linearAlgebra.Matrix;
 const ri = [0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41];
 const {Salle} = require("../db/sequelize")
+var valeur_finale= [];
 
 var salle= require("../models/Salle")
 module.exports.pair_wise_matrix = async function(preference_prix_capacite ,preference_prix_standing,preference_prix_acces,preference_capacite_standing,preference_capacite_acces,preference_standing_acces) {
@@ -158,7 +159,9 @@ for (i = 0; i < matrix.rows ;i += 1) {
 
 
 
-const tableau_pair_wise_creteria_weigth = [];
+var tableau_pair_wise_creteria_weigth = [];
+var tableau_a_trie=[];
+var tableau_index=[];
  let somme = 0.0;
   i = 0;
   j = 0;
@@ -170,10 +173,58 @@ const tableau_pair_wise_creteria_weigth = [];
     console.log("l' index : "+ i +" a pour valeur "+ somme  )
   
     tableau_pair_wise_creteria_weigth.push(somme);
+    tableau_a_trie.push(somme);
     num = 0;
   }
 
-max= tableau_pair_wise_creteria_weigth[0]
+//max= tableau_pair_wise_creteria_weigth[0] 
+//tableau_a_trie=tableau_pair_wise_creteria_weigth
+tableau_a_trie.sort((a,b)=>b-a)
+
+
+
+for (i = 0; i < tableau_pair_wise_creteria_weigth.length; i += 1) {
+
+  console.log( "valeur trier"+tableau_a_trie[i] )
+  console.log( "valeur non trier"+tableau_pair_wise_creteria_weigth[i])
+
+
+  for (j = 0; j < tableau_pair_wise_creteria_weigth.length; j += 1) {
+
+
+  
+   // 
+    if(tableau_a_trie[i] === tableau_pair_wise_creteria_weigth[j]){
+
+
+      console.log("index "+j)
+        tableau_index.push(j);
+    }
+  }
+
+}
+
+
+//let tableauSansDoublons = tableau_index.filter((v, i) => tableau_index.indexOf(v) === i);
+
+
+for (i = 0; i < tableau_index.length; i += 1) {
+
+ 
+console.log("taille  0 "+tableau_index[i])
+ var  nom=salles[tableau_index[i]].nom
+ 
+  console.log("nom  "+nom)
+ 
+   valeur_finale.push(nom);
+  
+}
+
+
+console.log("nom  "+valeur_finale[1])
+
+
+/*
   for (i = 0; i < tableau_pair_wise_creteria_weigth.length; i += 1) {
 
     if(max < tableau_pair_wise_creteria_weigth[i+1]){
@@ -203,14 +254,14 @@ max= tableau_pair_wise_creteria_weigth[0]
     salle.standing= salles[index].standing 
     salle.niveau_d_accesibilite= salles[index].niveau_d_accesibilite
     
-    console.log(""+salles[index].nom)
+    console.log(""+salles[index].nom)}
   
+*/
 
 
-
-    return (salle)
+    return (valeur_finale)
     
-  }
+  
 
   
  

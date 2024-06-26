@@ -8,8 +8,8 @@ module.exports.send = async function(mail,pseudo) {
     service:"gmail",
     secure:false,
     auth: {
-      user: 'isma.fran.etud.site.web23782@gmail.com',
-      pass: 's m p d a z xo l o t k h h w h'
+      user: 'franckemerites45@gmail.com',
+      pass: 'tavo ksgb emry ftls'
      }
   });
 const mailOptions = {
