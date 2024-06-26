@@ -35,6 +35,10 @@ export class HomeTeacherCourserDetailComponent {
     this._router.navigateByUrl('/teacher/home/courses/details/evaluation');
   }
 
+  getCourse(idFormateur: number) {
+
+  }
+
 }
 
 
