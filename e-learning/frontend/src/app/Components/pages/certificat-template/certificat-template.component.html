@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Certificat de Fin de Cours</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        /* width: 100%; */
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+      }
+      .certificate {
+        width: 100%;
+        padding: 20px;
+        border: 2px solid #333;
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 0;
+      }
+      h2 {
+        font-size: 2em;
+        margin-top: 0;
+        color: #555;
+      }
+
+      .details {
+        text-align: left;
+        margin-top: 20px;
+      }
+      .details p {
+        margin: 5px 0;
+      }
+      .signature {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .signature div {
+        width: 40%;
+        /* border-top: 1px solid #000; */
+        padding-top: 5px;
+        text-align: center;
+      }
+      .logo {
+        margin-top: 20px;
+      }
+      .logo img {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container flex-column pt-4 pb-4">
+      <div class="certificate flex-fill rounded-3">
+        <div class="logo mb-3">
+          <img src="../../../../assets/images/logo.svg" alt="Logo du site" />
+        </div>
+        <h4 class="mb-2 fw-semibold">Certificat de Fin de Cours</h4>
+        <div class="mb-4">
+          <span class="fs-6 text-secondary"
+            >Établissement d'Enseignement en Ligne</span
+          >
+        </div>
+        <div class="d-flex flex-column mb-4">
+          <span class="mb-2 text-secondary">Nom de l'étudiant</span>
+          <span class="fs-4 text-dark fw-semibold">Emmanuel Leuna</span>
+        </div>
+
+        <div class="d-flex flex-column mb-4">
+          <span class="mb-2 text-secondary">Intitulé du cours</span>
+          <span class="fs-4 text-secondary fw-semibold">UI/UX Design</span>
+        </div>
+
+        <div class="details p-4">
+          <p class="text-center">
+            Ce document certifie que l'étudiant
+            <strong>{{
+              _authService.user.prenom + " " + _authService.user.nom
+            }}Emmanuel Leuna</strong>
+            a suivi et complété avec succès le cours
+            <strong>{{ _pdfService.cours.nom }}UI/UX Design</strong
+            >. Au cours de cette formation, l'étudiant a étudié
+            {{ _pdfService.cours.nombreModule }} 6 chapitres sur une durée totale de
+            {{ _pdfService.cours.tempsApprentissage }} 3 heures
+          </p>
+        </div>
+        <p>
+          Et a passé avec succès les évaluations associées à chaque chapitre.
+        </p>
+        <div class="signature">
+          <div>
+            <span class="small">...</span>
+            <hr class="mt-1 mb-1" />
+            <p class="small text-dark">Signature du Formateur</p>
+          </div>
+
+          <div>
+            <span class="small">Mer 26 Juin 2024</span>
+            <hr class="mt-1 mb-1" />
+            <p class="small text-dark">Date</p>
+          </div>
+        </div>
+        <p class="small mt-4">
+          <a href="https://institute-2024.vercel.app/home">Institute</a>,
+          Université de yaoundé 1 - Cameroun
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

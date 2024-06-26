@@ -1,0 +1,286 @@
+<!-- ==== Header ==== -->
+<app-navbar></app-navbar>
+<!-- End header -->
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container mt-4 pb-5">
+    <div class="row mb-5">
+      <div class="col-lg-6 mb-3">
+        <h2 class="fs-4 mb-3 fw-semibold" style="color: rgb(9, 9, 94)">
+          A Propos
+        </h2>
+        <h3>
+          INSTITUTE offre le meilleures opportunites a tous les apprenants
+        </h3>
+
+        <div class="pt-2 pt-lg-0 fs-6">
+          <p>
+            INSTITUTE est une plateforme d’apprentissage impliquee dans la
+            formation et le conseil de ses apprenants. Elle a ete cree en 2024
+            et regorge de divers cours venant de divers formateurs aussi
+            performants les uns que les autres. Ainsi nos apprenants pourontse
+            lancer dans une quete aux competences afin de pouvoir realiser leurs
+            ambitions proffesionelles.
+          </p>
+          <button
+            (click)="go_to_register_page()"
+            mat-raised-button
+            class="shadow rounded-pill secondary-light-button"
+          >
+            <div class="d-flex align-items-center">
+              <span>Rejoignez nous</span>
+              <mat-icon class="me-2">navigate_next</mat-icon>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div
+          class="rounded-3 img-about"
+          style="
+            background-image: url('../../../../assets/images/about-2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+          "
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-lg-6 mt-3 order-2 order-lg-0">
+        <div
+          class="rounded-3 img-about"
+          style="
+            background-image: url('../../../../assets/images/about-1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+          "
+        ></div>
+      </div>
+
+      <div class="col-lg-6">
+        <h2 class="fw-semibold fs-4 mb-3" style="color: rgb(9, 9, 94)">
+          Caracteristiques
+        </h2>
+        <h3>
+          Nous nous efforcerons toujours de vous offrir les meilleures
+          fonctionnalites
+        </h3>
+
+        <div class="pt-2 pt-lg-0 fs-6">
+          <p>
+            Chez INSTITUTE notre principale determination est de clarifier
+            l’esprit de nos etudiants quant a leurs objectifs , tout en les
+            rendant cohérents dans leurs ambitions et en les poussant à être
+            confiants pour leur voyage au fil du temps.
+          </p>
+          <button
+            (click)="go_to_register_page()"
+            mat-raised-button
+            class="shadow rounded-pill secondary-light-button"
+          >
+            <div class="d-flex align-items-center">
+              <span>Apprendre plus</span>
+              <mat-icon class="me-2">navigate_next</mat-icon>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
+
+<!-- ======= About List Section ======= -->
+<section id="about" class="abou">
+  <div class="mb-4 pt-5 pb-3 bg-blue-light">
+    <div class="container">
+      <div class="mb-5 d-flex flex-column align-items-center">
+        <span class="fw-semibold fs-3 text-dark mb-2">Nos benefices</span>
+
+        <div class="row">
+          <div class="col-lg-4 mb-3">
+            <mat-card class="example-card w-100" appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>
+                  <h5 class="fw-bold">Recommandation des cours</h5>
+                </mat-card-title>
+              </mat-card-header>
+              <div>
+                <mat-card-content>
+                  <p>
+                    En effet dans notre plateforme divers cours pourronts etre
+                    recommandes a nos apprenants sur la base des informations de
+                    ceux ci notamment leur domaine de predilection etc. ce qui
+                    facilicitera le parcours sur la plateforme
+                  </p>
+                </mat-card-content>
+              </div>
+            </mat-card>
+          </div>
+
+          <div class="col-lg-4 mb-3">
+            <mat-card class="example-card w-100" appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>
+                  <h5 class="fw-bold">Variété de formats d'apprentissage</h5>
+                </mat-card-title>
+              </mat-card-header>
+              <div>
+                <mat-card-content>
+                  <p>
+                    En effet la plateforme offre une varites de cours en foction
+                    des domaines des niveaux d'expertise la langue et bien
+                    d'autres.les cours pouront soit etre lus soit etre visonnes
+                    du fait de la presence de plusieurs videos
+                  </p>
+                </mat-card-content>
+              </div>
+            </mat-card>
+          </div>
+
+          <div class="col-lg-4 mb-3">
+            <mat-card class="example-card w-100" appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>
+                  <h5 class="fw-bold">Suivi personnalisé des progrès</h5>
+                </mat-card-title>
+              </mat-card-header>
+              <div>
+                <mat-card-content>
+                  <p>
+                    Le niveau de chaque apprenant pourra etre suivi du fait de
+                    la presence outils d'évaluation et de suivi qui permettent
+                    aux apprenants et aux formateurs de mesurer les résultats et
+                    d'identifier les lacunes éventuelles.
+                  </p>
+                </mat-card-content>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-5 d-flex flex-column align-items-center">
+      <!-- ======= Our Team Section ======= -->
+      <section id="team" class="team section-bg">
+        <div class="container">
+          <div class="section-title" data-aos="fade-up">
+            <h2>Notre <strong>Équipe</strong></h2>
+            <p>
+              Les architectes derrière votre savoir, constitué de jeunes
+              talentueux apportant chacun une experience dans certifiée le but
+              d'ameliorer votre apprentissage sur la plate-forme.
+            </p>
+          </div>
+
+          <div class="row">
+            <!-- Patricia -->
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up">
+                <div class="member-img">
+                  <img
+                    src="../../../../assets/images/pat.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>NEGOUE PATRICIA</h4>
+                  <span>UI/UX Designer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sarah -->
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img
+                    src="../../../../assets/images/sarah.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>LAURETTE SARAH</h4>
+                  <span>Backend developper</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Loic -->
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="200">
+                <div class="member-img">
+                  <img
+                    src="../../../../assets/images/loic.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>CHARLES LOIC</h4>
+                  <span>Backend developper</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Emma -->
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member" data-aos="fade-up" data-aos-delay="300">
+                <div class="member-img">
+                  <img
+                    src="../../../../assets/images/emma.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>EMMANUEL LEUNA</h4>
+                  <span>Frontend developper</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Our Team Section -->
+    </div>
+  </div>
+</section>
+
+<!-- End About List Section -->
+
+<!-- ==== footer ==== -->
+<app-footer></app-footer>
+<!-- End footer -->
