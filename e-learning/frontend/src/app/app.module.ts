@@ -69,6 +69,7 @@ import { HomeAdminDashboardComponent } from './Components/pages/home-admin-dashb
 import { HomeAdminTeacherComponent } from './Components/pages/home-admin-teacher/home-admin-teacher.component';
 import { HomeAdminDomainComponent } from './Components/pages/home-admin-domain/home-admin-domain.component';
 import { HomeTeacherCourserDetailComponent } from './Components/pages/home-teacher-courser-detail/home-teacher-courser-detail.component';
+import { HomeAdminDomainVoirComponent } from './Components/pages/home-admin-domain-voir/home-admin-domain-voir.component';
 
 
 
@@ -106,7 +107,8 @@ import { HomeTeacherCourserDetailComponent } from './Components/pages/home-teach
     HomeAdminDashboardComponent,
     HomeAdminTeacherComponent,
     HomeAdminDomainComponent,
-    HomeTeacherCourserDetailComponent
+    HomeTeacherCourserDetailComponent,
+    HomeAdminDomainVoirComponent
   ],
   imports: [
     MatDividerModule,

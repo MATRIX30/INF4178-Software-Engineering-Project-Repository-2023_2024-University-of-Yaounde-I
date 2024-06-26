@@ -3,13 +3,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-home-admin-domain',
-  templateUrl: './home-admin-domain.component.html',
-  styleUrls: ['./home-admin-domain.component.css']
+  selector: 'app-home-admin-domain-voir',
+  templateUrl: './home-admin-domain-voir.component.html',
+  styleUrls: ['./home-admin-domain-voir.component.css']
 })
-export class HomeAdminDomainComponent {
-
-  displayedColumns: string[] = ['titre', 'description', 'action'];
+export class HomeAdminDomainVoirComponent {
+  displayedColumns: string[] = ['titre', 'action'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -57,4 +56,5 @@ const ELEMENT_DATA: PeriodicElement[] = [
   },
 
 ];
+
 

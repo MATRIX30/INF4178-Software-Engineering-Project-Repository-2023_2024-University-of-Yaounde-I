@@ -21,6 +21,8 @@ import { HomeAdminComponent } from './Components/pages/home-admin/home-admin.com
 import { HomeAdminDashboardComponent } from './Components/pages/home-admin-dashboard/home-admin-dashboard.component';
 import { HomeAdminTeacherComponent } from './Components/pages/home-admin-teacher/home-admin-teacher.component';
 import { HomeAdminDomainComponent } from './Components/pages/home-admin-domain/home-admin-domain.component';
+import { HomeAdminDomainVoirComponent } from './Components/pages/home-admin-domain-voir/home-admin-domain-voir.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -32,6 +34,16 @@ const routes: Routes = [
   { path: 'cours-detail', component: SuiviCoursComponent, title: "Course details" },
   { path: 'user/home/evaluation', component: EvaluationComponent },
   { path: 'certificat', component: CertificatTemplateComponent, title: "Certificat de fin de cours" },
+  {path: 'home-teacher', component: HomeTeacherComponent, title: "home teacher"},
+  {path: 'home-teacher-course', component: HomeTeacherCourseComponent, title: "home teacher course"},
+  {path: 'home-teacher-dashboard', component: HomeTeacherDashboardComponent, title: "home teacher dashboard"},
+  {path: 'home-teacher', component: HomeTeacherComponent, title: "home teacher"},
+  {path: 'home-admin-teacher', component: HomeAdminTeacherComponent, title: "home admin teacher"},
+  {path: 'home-admin-domain', component: HomeAdminDomainComponent, title: "home admin domain"},
+  {path: 'home-admin-domain-voir', component: HomeAdminDomainVoirComponent, title: "home admin domain voir"},
+  {path: 'home-admin-dashboard', component: HomeAdminDashboardComponent, title: "home admin dashboard"},
+
+
 
   // User =====================================================================================
   {
