@@ -45,8 +45,6 @@ const routes: Routes = [
   {path: 'home-admin-domain-voir', component: HomeAdminDomainVoirComponent, title: "home admin domain voir"},
   {path: 'home-admin-dashboard', component: HomeAdminDashboardComponent, title: "home admin dashboard"},
 
-
-
   // User =====================================================================================
   {
     path: 'user/home', component: HomeUserComponent, title: 'Tableau de bord', children: [

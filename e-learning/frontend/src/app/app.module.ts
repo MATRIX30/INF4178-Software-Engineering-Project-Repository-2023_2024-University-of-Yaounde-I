@@ -110,7 +110,11 @@ import { FormateurCoursDialogComponent } from './Components/dialogs/formateur-co
     HomeAdminDashboardComponent,
     HomeAdminTeacherComponent,
     HomeAdminDomainComponent,
-    HomeTeacherCourserDetailComponent
+    HomeTeacherCourserDetailComponent,
+    HomeAdminDomainVoirComponent,
+    HomeTeacherEvaluationComponent,
+    EvaluationDialogComponent,
+    FormateurCoursDialogComponent
   ],
   imports: [
     MatDividerModule,
