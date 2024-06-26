@@ -73,6 +73,9 @@ import { HomeAdminDomainVoirComponent } from './Components/pages/home-admin-doma
 import { HomeTeacherEvaluationComponent } from './Components/pages/home-teacher-evaluation/home-teacher-evaluation.component';
 import { EvaluationDialogComponent } from './Components/dialogs/evaluation-dialog/evaluation-dialog.component';
 import { FormateurCoursDialogComponent } from './Components/dialogs/formateur-cours-dialog/formateur-cours-dialog.component';
+import { ChapitreDialogComponent } from './Components/dialogs/chapitre-dialog/chapitre-dialog.component';
+import { EvaluatioDialogComponent } from './Components/dialogs/evaluatio-dialog/evaluatio-dialog.component';
+import { EvaluationChapitreDialogComponent } from './Components/dialogs/evaluation-chapitre-dialog/evaluation-chapitre-dialog.component';
 
 
 
@@ -114,7 +117,10 @@ import { FormateurCoursDialogComponent } from './Components/dialogs/formateur-co
     HomeAdminDomainVoirComponent,
     HomeTeacherEvaluationComponent,
     EvaluationDialogComponent,
-    FormateurCoursDialogComponent
+    FormateurCoursDialogComponent,
+    ChapitreDialogComponent,
+    EvaluatioDialogComponent,
+    EvaluationChapitreDialogComponent
   ],
   imports: [
     MatDividerModule,

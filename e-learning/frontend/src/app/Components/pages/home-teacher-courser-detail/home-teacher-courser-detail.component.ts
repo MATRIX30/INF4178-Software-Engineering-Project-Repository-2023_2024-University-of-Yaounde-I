@@ -1,7 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { FormateurService } from 'src/app/Services/Formateur/formateur.service';
+import { ChapitreDialogComponent } from '../../dialogs/chapitre-dialog/chapitre-dialog.component';
+import { EvaluationChapitreDialogComponent } from '../../dialogs/evaluation-chapitre-dialog/evaluation-chapitre-dialog.component';
+import { EvaluatioDialogComponent } from '../../dialogs/evaluatio-dialog/evaluatio-dialog.component';
 
 @Component({
   selector: 'app-home-teacher-courser-detail',
@@ -10,15 +15,23 @@ import { Router } from '@angular/router';
 })
 export class HomeTeacherCourserDetailComponent {
 
+  userStr!: string | null;
+  userJson!: any;
+  chapitres: any[] = [];
+  evaluations: any[] = [];
+  cours!: any;
+  coursJson!: any;
+
   displayedColumnsChapitre: string[] = ['no', 'titre', 'duree', 'action'];
-  dataSourceChapitre = new MatTableDataSource<Chapitre>(ELEMENT_DATA_CHAPITRE);
+  dataSourceChapitre = new MatTableDataSource<Chapitre>(this.chapitres);
 
   displayedColumnsEvaluation: string[] = ['no', 'titre', 'action'];
-  dataSourceEvaluation = new MatTableDataSource<Evaluation>(ELEMENT_DATA_EVALUATION);
-
+  dataSourceEvaluation = new MatTableDataSource<Evaluation>(this.evaluations);
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    private _formateurService: FormateurService,
+    private _dialog: MatDialog
   ) { }
 
   @ViewChild('paginator_chapitre') paginator_chapitres!: MatPaginator;
@@ -30,12 +43,77 @@ export class HomeTeacherCourserDetailComponent {
   }
 
 
-  go_to_evaluation_page() {
+  go_to_evaluation_page(element: any) {
     // code ...
+    localStorage.setItem('formateur-cours-seleted', JSON.stringify(element));
     this._router.navigateByUrl('/teacher/home/courses/details/evaluation');
   }
 
-  getCourse(idFormateur: number) {
+  getChapitres(id: number) {
+    try {
+      this._formateurService.getChapitreByIdCours(id).subscribe(res => {
+        console.log(res);
+        this.chapitres = res.data;
+        this.dataSourceChapitre = new MatTableDataSource<Chapitre>(this.chapitres);
+
+      });
+    } catch (error) {
+      console.error('une erreur est survenue');
+    }
+  }
+
+  getEvaluation(chapitres: any[]) {
+    for (let c of chapitres) {
+      this.evaluations.push(c.evaluations);
+    }
+
+    // populate table
+    this.dataSourceEvaluation = new MatTableDataSource<Evaluation>(this.evaluations);
+  }
+
+  // ajouter un chap
+  open_chap_dialog(mode: string, element: any) {
+    let dialog = this._dialog.open(ChapitreDialogComponent, {
+      data: {
+        idcours: this.coursJson.coursId,
+        mode: mode,
+        element: element
+      }, maxWidth: 500
+    });
+
+    dialog.afterClosed().subscribe(result => {
+      if (result) {
+        this.getChapitres(this.coursJson.coursId);
+      }
+    });
+  }
+
+
+  // ajouter une evaluation
+  open_eval_dialog() {
+    let dialog = this._dialog.open(EvaluatioDialogComponent, {
+      data: {
+
+      }
+    });
+
+    dialog.afterClosed().subscribe(result => { });
+  }
+
+  ngOnInit() {
+    // get user
+    this.userStr = sessionStorage.getItem('user');
+    this.cours = localStorage.getItem('formaeur-cours-selected');
+
+    if (this.cours) {
+      this.coursJson = JSON.parse(this.cours);
+
+      // get les chapitres du cours selectionner
+      this.getChapitres(this.coursJson.coursId);
+
+      // get les evaluations du cours selectionner
+      this.getEvaluation(this.chapitres);
+    }
 
   }
 

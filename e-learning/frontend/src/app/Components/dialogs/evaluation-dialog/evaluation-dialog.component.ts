@@ -32,7 +32,7 @@ export class EvaluationDialogComponent {
   propositions = 2;
   point: number = 1;
   propositionsStatements: string[] = [];
-  reponses: string[] = [];
+  reponses: string[] = []; 
 
   onChangePropositionNumber(event: any) {
     // init form control array

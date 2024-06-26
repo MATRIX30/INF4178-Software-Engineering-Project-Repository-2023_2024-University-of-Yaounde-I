@@ -37,8 +37,9 @@ export class HomeTeacherCourseComponent {
     this.dataSource.paginator = this.paginator;
   }
 
-  go_to_chapitres() {
+  go_to_chapitres(element: any) {
     // code ...
+    localStorage.setItem('formaeur-cours-selected', JSON.stringify(element));
     this._router.navigateByUrl('/teacher/home/courses/details');
   }
 
@@ -49,7 +50,7 @@ export class HomeTeacherCourseComponent {
         element: element,
         sujetList: this._sujetService.sujetList,
         idformateur: this.userJson.formateurId
-      }
+      }, maxWidth: 500
     });
 
     dialog.afterClosed().subscribe(result => {
