@@ -1,0 +1,7 @@
+{
+  "replaceAttrValues": {
+    "#000": "{props.borderColor}",
+    "#000000": "{props.strockeOne}",
+    "#00000": "{props.strockeTwo}"
+  }
+}
