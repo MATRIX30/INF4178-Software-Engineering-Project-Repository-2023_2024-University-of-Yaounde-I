@@ -137,8 +137,11 @@ export class CoursComponent {
         // ahp function
         this.coursListFilter = this.ahp(courslist);
 
-        console.log("LIste des cours ahp --------------------");
+        console.log("Liste des cours ahp --------------------");
         console.log(this.coursListFilter);
+
+        console.log(response.data);
+
 
       });
     }
@@ -245,6 +248,8 @@ export class CoursComponent {
       console.log("poids cours-" + cp.cours.coursId + ": " + cp.poids);
 
       coursListAhp.push(cp.cours);
+      console.log(cp.cours);
+
     }
 
     // stop loader when ahp process finished

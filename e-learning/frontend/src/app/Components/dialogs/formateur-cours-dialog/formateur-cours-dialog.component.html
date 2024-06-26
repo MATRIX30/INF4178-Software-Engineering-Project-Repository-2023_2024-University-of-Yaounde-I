@@ -1,0 +1,153 @@
+<!-- Header -->
+<div
+  class="fw-bold text-start d-flex pt-2 pb-2 ps-3 pe-3 justify-content-between align-items-center"
+>
+  <span class="me-4" [hidden]="mode == 'edit' || mode == 'show'"
+    >Ajouter un cours</span
+  >
+  <span class="me-4" [hidden]="mode == 'add' || mode == 'show'"
+    >Modifier un cours</span
+  >
+
+  <button mat-button [mat-dialog-close]="false" class="text-center">
+    <mat-icon class="me-0">close</mat-icon>
+  </button>
+</div>
+
+<!-- Content -->
+<mat-dialog-content class="mat-typography pb-1 p-3">
+  <div class="row">
+    <!-- sujet -->
+    <div class="col-md-12">
+      <mat-form-field class="w-100 rounded small" appearance="outline">
+        <mat-label>Sujet</mat-label>
+        <mat-select
+          [value]="sujet"
+          [(ngModel)]="sujet"
+          [formControl]="sujetFormControl"
+          [errorStateMatcher]="matcher"
+        >
+          <mat-option *ngFor="let s of sujetList" [value]="s.sujetId">{{
+            s.nom
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- titre -->
+    <div class="col-md-12">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Titre</mat-label>
+        <input
+          matInput
+          ngModel
+          [errorStateMatcher]="matcher"
+          [formControl]="titreFormControl"
+          [(ngModel)]="titre"
+        />
+      </mat-form-field>
+    </div>
+
+    <!-- Chapitre -->
+    <div class="col-md-6">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Chapitre</mat-label>
+        <input
+          matInput
+          ngModel
+          inputmode="numeric"
+          type="number"
+          [errorStateMatcher]="matcher"
+          [formControl]="chapitreFormControl"
+          [(ngModel)]="chapitres"
+        />
+      </mat-form-field>
+    </div>
+
+    <!-- durree -->
+    <div class="col-md-6">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Duree (Heure)</mat-label>
+        <input
+          matInput
+          ngModel
+          inputmode="numeric"
+          type="number"
+          [errorStateMatcher]="matcher"
+          [formControl]="dureeFormControl"
+          [(ngModel)]="duree"
+        />
+      </mat-form-field>
+    </div>
+
+    <!-- Niveau -->
+    <div class="col-md-6">
+      <mat-form-field class="w-100 rounded small" appearance="outline">
+        <mat-label>Niveau</mat-label>
+        <mat-select
+          [value]="niveau"
+          [(ngModel)]="niveau"
+          [formControl]="niveauFormControl"
+          [errorStateMatcher]="matcher"
+        >
+          <mat-option value="Débutant">Débutant</mat-option>
+          <mat-option value="Intermédiaire">Intermédiaire</mat-option>
+          <mat-option value="Avancé">Avancé</mat-option>
+          <mat-option value="Expert">Expert</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Niveau -->
+    <div class="col-md-6">
+      <mat-form-field class="w-100 rounded small" appearance="outline">
+        <mat-label>Langue</mat-label>
+        <mat-select
+          [value]="niveau"
+          [(ngModel)]="niveau"
+          [formControl]="langueFormControl"
+          [errorStateMatcher]="matcher"
+        >
+          <mat-option value="Francais">Francais</mat-option>
+          <mat-option value="Anglais">Anglais</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- description -->
+    <div class="col-md-12">
+      <mat-form-field class="w-100" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="description"
+          [errorStateMatcher]="matcher"
+          [formControl]="descriptionFormControl"
+          placeholder="Description du cours"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<!-- Button action -->
+<mat-dialog-actions align="end" class="p-3 pt-1">
+  <button
+    class="{{ _loaderService.isLoading ? '' : ' primary-light-button' }}"
+    mat-button
+    [hidden]="mode == 'show'"
+    (click)="valid()"
+    [disabled]="_loaderService.isLoading"
+  >
+    Enregistrer
+  </button>
+
+  <button
+    [disabled]="_loaderService.isLoading"
+    class="primary-dark-button"
+    mat-button
+    [mat-dialog-close]="false"
+  >
+    Annuler
+  </button>
+</mat-dialog-actions>

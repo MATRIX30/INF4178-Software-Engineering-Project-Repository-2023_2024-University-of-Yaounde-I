@@ -1,1 +1,270 @@
-<p>home-admin-teacher works!</p>
+<app-navbar></app-navbar>
+
+<div class="row">
+  <div class="container mt-3 col-4">
+    <div class="row">
+      <!-- mobile side bar ===================================================== -->
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        
+        <div class="offcanvas-body">
+          <mat-list>
+            <div mat-subheader class="fw-semibold">Espace formateur</div>
+  
+            <!-- tableau de bord -->
+            <button
+              class="w-100 d-flex justify-content-start mb-2"
+              mat-button
+              routerLink="dashboard"
+              routerLinkActive="nav-item-active"
+            >
+              <mat-list-item
+                ><mat-icon matListItemIcon>dashboard</mat-icon>
+                <div matListItemTitle>Tableau de bord</div></mat-list-item
+              >
+            </button>
+  
+            <!-- Formateur -->
+            <button
+              class="w-100 d-flex justify-content-start mb-2"
+              mat-button
+              routerLink="courses"
+              routerLinkActive="nav-item-active"
+            >
+              <mat-list-item
+                ><mat-icon matListItemIcon>people</mat-icon>
+                <div matListItemTitle>Formateur</div></mat-list-item
+              >
+            </button>
+          </mat-list>
+        </div>
+      </div>
+  
+      <!-- sidebar web ========================================================= -->
+      <div class="col-lg-3 d-none d-lg-block">
+        <mat-list>
+          <div mat-subheader class="fw-semibold">Administration</div>
+  
+          <!-- tableau de bord -->
+          <button
+            class="w-100 d-flex justify-content-start mb-2"
+            mat-button
+            routerLink="dashboard"
+            routerLinkActive="nav-item-active"
+          >
+            <mat-list-item
+              ><mat-icon matListItemIcon>dashboard</mat-icon>
+              <div matListItemTitle>Tableau de bord</div></mat-list-item
+            >
+          </button>
+  
+          <!-- gestion des cours -->
+          <button
+            class="w-100 d-flex justify-content-start mb-2"
+            mat-button
+            routerLink="courses"
+            routerLinkActive="nav-item-active"
+          >
+            <mat-list-item
+              ><mat-icon matListItemIcon>people</mat-icon>
+              <div matListItemTitle>Formateur</div></mat-list-item
+            >
+          </button>
+
+          <button
+            class="w-100 d-flex justify-content-start mb-2"
+            mat-button
+            routerLink="courses"
+            routerLinkActive="nav-item-active"
+          >
+            <mat-list-item
+              ><mat-icon matListItemIcon>public</mat-icon>
+              <div matListItemTitle>Domaines</div></mat-list-item
+            >
+          </button>
+        </mat-list>
+
+        
+      </div>
+  
+      <!-- content -->
+      <div class="col-lg-9 pb-4">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+     <div class="container col-8">
+<!-- title -->
+<div
+  class="fs-3 text-dark mb-3 sticky-top t-86 d-flex align-items-center bg-white pb-2 pt-3"
+  style="z-index: 996 !important"
+>
+  <button
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample"
+    aria-controls="offcanvasExample"
+    mat-icon-button
+    class="me-2 d-lg-none"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span> Formateur </span>
+</div>
+
+<!-- Subtitle -->
+<div>
+  <!-- text -->
+  <div
+    class="mb-3 text-secondary d-flex align-items-center flex-row justify-content-between"
+  >
+    <span>Demandes d'inscription</span>
+    <button
+      mat-stroked-button
+      class="btn bt-sm border-dark-subtle text-secondary bg-light"
+    >
+    <span class="material-icons-outlined">
+        sync
+        </span>Actualiser
+    </button>
+  </div>
+
+  <!-- content -->
+  <table mat-table [dataSource]="dataSource" class="">
+    <!-- titre Column -->
+    <ng-container matColumnDef="titre">
+      <th mat-header-cell *matHeaderCellDef>Nom</th>
+      <td mat-cell *matCellDef="let element">{{ element.nom }}</td>
+    </ng-container>
+
+    <!-- niveau Column -->
+    <ng-container matColumnDef="niveau">
+      <th mat-header-cell *matHeaderCellDef>Sexe.Age</th>
+      <td mat-cell *matCellDef="let element">{{ element.sexeage }}</td>
+    </ng-container>
+
+    <!-- chapitres Column -->
+    <ng-container matColumnDef="chapitre">
+      <th mat-header-cell *matHeaderCellDef>Domaine</th>
+      <td mat-cell *matCellDef="let element">{{ element.domaine }}</td>
+    </ng-container>
+
+    <!-- sujet Column -->
+    <ng-container matColumnDef="sujet">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button class="btn btn-sm btn-outline-warning me-2">Voir</button>
+        <button class="btn btn-sm btn-outline-success me-2">Consulter</button>
+        <button class="btn btn-sm btn-outline-danger">Supprimer</button>
+      </td>
+      <!-- <td mat-cell *matCellDef="let element"></td> -->
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <!-- paginator -->
+  <mat-paginator
+    class="mt-3"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+<div
+  class="fs-3 text-dark mb-3 sticky-top t-86 d-flex align-items-center bg-white pb-2 pt-3"
+  style="z-index: 996 !important"
+>
+  <button
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample"
+    aria-controls="offcanvasExample"
+    mat-icon-button
+    class="me-2 d-lg-none"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span> Formateur </span>
+</div>
+
+<!-- Subtitle -->
+<div>
+  <!-- text -->
+  <div
+    class="mb-1 text-secondary d-flex align-items-center flex-row justify-content-between"
+  >
+    <span></span>
+    <button
+      mat-stroked-button
+      class="btn bt-sm border-dark-subtle text-secondary bg-light"
+    >
+    <span class="material-icons-outlined">
+        sync
+        </span>Actualiser
+    </button>
+  </div>
+
+  <!-- content -->
+  <table mat-table [dataSource]="dataSource" class="">
+    <!-- titre Column -->
+    <ng-container matColumnDef="titre">
+      <th mat-header-cell *matHeaderCellDef>Nom</th>
+      <td mat-cell *matCellDef="let element">{{ element.nom }}</td>
+    </ng-container>
+
+    <!-- niveau Column -->
+    <ng-container matColumnDef="niveau">
+      <th mat-header-cell *matHeaderCellDef>Sexe.Age</th>
+      <td mat-cell *matCellDef="let element">{{ element.sexeage }}</td>
+    </ng-container>
+
+    <!-- chapitres Column -->
+    <ng-container matColumnDef="chapitre">
+      <th mat-header-cell *matHeaderCellDef>Domaine</th>
+      <td mat-cell *matCellDef="let element">{{ element.domaine }}</td>
+    </ng-container>
+
+    <!-- sujet Column -->
+    <ng-container matColumnDef="sujet">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+    </ng-container>
+
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button class="btn btn-sm btn-outline-warning me-2">Voir</button>
+       
+        <button class="btn btn-sm btn-outline-danger">Supprimer</button>
+      </td>
+      <!-- <td mat-cell *matCellDef="let element"></td> -->
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <!-- paginator -->
+  <mat-paginator
+    class="mt-3"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+</div>
+</div>
+<app-footer></app-footer>

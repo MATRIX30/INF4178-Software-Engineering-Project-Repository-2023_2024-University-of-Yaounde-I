@@ -26,6 +26,8 @@ export class CertificatTemplateComponent {
   }
 
   ngOnInit() {
+    console.log(this.dateStr);
+
     let userString = sessionStorage.getItem('user');
     if (userString) {
       this._authService.user = JSON.parse(userString);

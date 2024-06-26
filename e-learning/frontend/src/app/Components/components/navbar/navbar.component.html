@@ -26,10 +26,38 @@
           <div class="container-fluid">
             <div class="" style="height: 56px !important">
               <mat-form-field class="w-100" appearance="outline">
-                <input class="ps-2" matInput ngModel placeholder="Rechercher" />
-                <button matSuffix mat-icon-button class="btn btn-sm">
+                <!-- <input class="ps-2" matInput ngModel placeholder="Rechercher" /> -->
+                <button
+                  (click)="search()"
+                  matSuffix
+                  mat-icon-button
+                  class="btn btn-sm"
+                >
                   <mat-icon matPrefix class="text-secondary">search</mat-icon>
                 </button>
+
+                <!-- ------------------------------- -->
+                <input
+                  class="ps-2"
+                  #input_search
+                  type="text"
+                  placeholder="Rechercher"
+                  matInput
+                  [(ngModel)]="params"
+                  [formControl]="myControl"
+                  [matAutocomplete]="auto"
+                  (input)="filter()"
+                  (focus)="filter()"
+                />
+                <mat-autocomplete requireSelection #auto="matAutocomplete">
+                  <mat-option
+                    *ngFor="let option of filteredOptions"
+                    [value]="option.label"
+                  >
+                    {{ option.label }}
+                  </mat-option>
+                </mat-autocomplete>
+                <!-- ------------------------------------ -->
               </mat-form-field>
             </div>
           </div>
@@ -130,7 +158,7 @@
               Mon profil
             </button>
             <button
-              routerLink="/user/home/dashboard"
+              (click)="go_to_homepage()"
               *ngIf="_authService.isUserConnected"
               mat-menu-item
               class="bg-light-blue"

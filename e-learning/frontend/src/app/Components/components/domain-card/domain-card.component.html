@@ -2,14 +2,14 @@
   class="p-3 rounded-3 border-1 border-top border-bottom border-start border-end border-dark-subtile d-flex flex-column align-items-start mb-4"
 >
   <!-- domain title -->
-  <span class="p-2 ps-3 pe-3 small bg-domain-title mb-3 rounded-pill text-white"
-    >INFORMATIQUE</span
+  <span
+    class="p-2 ps-3 pe-3 small bg-domain-title mb-3 rounded-pill text-white text-uppercase"
+    >{{ domain.nom }}</span
   >
 
   <!-- secondary description -->
   <p class="text-secondary mb-3">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque, modi alias
-    repellendus perspiciatis quas eligendi inventore earum.
+    {{ domain.description }}
   </p>
 
   <!-- button section -->

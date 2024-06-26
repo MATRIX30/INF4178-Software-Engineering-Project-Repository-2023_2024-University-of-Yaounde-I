@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./domain-card.component.css']
 })
 export class DomainCardComponent {
-  @Input() domain!: string | null;
+  @Input() domain!: any | null;
 }

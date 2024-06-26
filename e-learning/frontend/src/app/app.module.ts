@@ -35,6 +35,7 @@ import { MyErrorStateMatcher } from './Components/Utils/MyErroStateMatcher';
 import { FullLoaderComponent } from './Components/components/full-loader/full-loader.component';
 import { DatePipe } from '@angular/common';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
@@ -68,6 +69,13 @@ import { HomeAdminDashboardComponent } from './Components/pages/home-admin-dashb
 import { HomeAdminTeacherComponent } from './Components/pages/home-admin-teacher/home-admin-teacher.component';
 import { HomeAdminDomainComponent } from './Components/pages/home-admin-domain/home-admin-domain.component';
 import { HomeTeacherCourserDetailComponent } from './Components/pages/home-teacher-courser-detail/home-teacher-courser-detail.component';
+import { HomeAdminDomainVoirComponent } from './Components/pages/home-admin-domain-voir/home-admin-domain-voir.component';
+import { HomeTeacherEvaluationComponent } from './Components/pages/home-teacher-evaluation/home-teacher-evaluation.component';
+import { EvaluationDialogComponent } from './Components/dialogs/evaluation-dialog/evaluation-dialog.component';
+import { FormateurCoursDialogComponent } from './Components/dialogs/formateur-cours-dialog/formateur-cours-dialog.component';
+import { ChapitreDialogComponent } from './Components/dialogs/chapitre-dialog/chapitre-dialog.component';
+import { EvaluatioDialogComponent } from './Components/dialogs/evaluatio-dialog/evaluatio-dialog.component';
+import { EvaluationChapitreDialogComponent } from './Components/dialogs/evaluation-chapitre-dialog/evaluation-chapitre-dialog.component';
 
 
 
@@ -105,7 +113,14 @@ import { HomeTeacherCourserDetailComponent } from './Components/pages/home-teach
     HomeAdminDashboardComponent,
     HomeAdminTeacherComponent,
     HomeAdminDomainComponent,
-    HomeTeacherCourserDetailComponent
+    HomeTeacherCourserDetailComponent,
+    HomeAdminDomainVoirComponent,
+    HomeTeacherEvaluationComponent,
+    EvaluationDialogComponent,
+    FormateurCoursDialogComponent,
+    ChapitreDialogComponent,
+    EvaluatioDialogComponent,
+    EvaluationChapitreDialogComponent
   ],
   imports: [
     MatDividerModule,
@@ -114,6 +129,7 @@ import { HomeTeacherCourserDetailComponent } from './Components/pages/home-teach
     BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule,
+    MatAutocompleteModule,
     MatCardModule,
     MatNativeDateModule,
     NgxScrollTopModule,
