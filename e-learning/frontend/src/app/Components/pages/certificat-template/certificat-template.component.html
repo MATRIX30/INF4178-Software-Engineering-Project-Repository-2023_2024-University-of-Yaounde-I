@@ -72,9 +72,7 @@
         </div>
         <div class="d-flex flex-column mb-4">
           <span class="mb-2 text-secondary">Nom de l'étudiant</span>
-          <span class="fs-4 text-dark fw-semibold">{{
-            _authService.user.prenom + " " + _authService.user.nom
-          }}</span>
+          <span class="fs-4 text-dark fw-semibold">Emmanuel Leuna</span>
         </div>
 
         <div class="d-flex flex-column mb-4">
@@ -83,20 +81,20 @@
         </div>
 
         <div class="details p-4">
-          <p>
+          <p class="text-center">
             Ce document certifie que l'étudiant
             <strong>{{
               _authService.user.prenom + " " + _authService.user.nom
-            }}</strong>
+            }}Emmanuel Leuna</strong>
             a suivi et complété avec succès le cours
-            <strong>{{ _pdfService.cours.nom }}</strong
+            <strong>{{ _pdfService.cours.nom }}UI/UX Design</strong
             >. Au cours de cette formation, l'étudiant a étudié
-            {{ _pdfService.cours.nombreModule }} chapitres sur une durée de
-            {{ _pdfService.cours.tempsApprentissage }}
+            {{ _pdfService.cours.nombreModule }} 6 chapitres sur une durée totale de
+            {{ _pdfService.cours.tempsApprentissage }} 3 heures
           </p>
         </div>
         <p>
-           Et a passé avec succès les évaluations associées à chaque chapitre.
+          Et a passé avec succès les évaluations associées à chaque chapitre.
         </p>
         <div class="signature">
           <div>
@@ -106,7 +104,7 @@
           </div>
 
           <div>
-            <span class="small">{{ dateStr }}</span>
+            <span class="small">Mer 26 Juin 2024</span>
             <hr class="mt-1 mb-1" />
             <p class="small text-dark">Date</p>
           </div>
